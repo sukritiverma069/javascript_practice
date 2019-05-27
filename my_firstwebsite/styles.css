@@ -8,8 +8,9 @@ body{
 
 header{
     background-color: black;
-    height: 100px; 
+    height: 400px; 
     padding: 20px;
+    text-align: center;
     
 }
 
@@ -21,14 +22,14 @@ header a {
 
 }
 header .logo a {
-    background-image: url("images/images.png");
+    background-image: url("images/logo.png");
     background-size: 300px;
     background-repeat: no-repeat;
     display: inline-block;
     height: 80px;
     position: relative;
     text-indent: -9999999px;
-    top: -40px;
+    top: -30px;
     width: 300px;
 }
  section{
