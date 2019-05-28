@@ -6,10 +6,13 @@ body{
     padding: 0;
 }
 
+/* Header */
+
 header{
     background-color: black;
-    background-image: url("images/hero.jpg");
-    background-repeat: no-repeat;
+    background-image: url("images/quiche.jpg");
+    background-size: 100%;
+    background-position:  center;
     height: 400px; 
     padding: 20px;
     text-align: center;
@@ -34,7 +37,22 @@ header .logo a {
     top: -30px;
     width: 300px;
 }
- section{
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+/* Features */
+
+ .features{
      background: white;
      color: gray;
      padding: 20px;
@@ -43,26 +61,30 @@ header .logo a {
      
  }
 
- div {
-     background: orange;
-     width: 100px;
+ .features figure {
      margin: auto;
+     text-align: center;
+     text-transform: uppercase;
+     width: 200px;
      
  }
 
- ul {
-     margin: 0;
-     padding: 0;
-     list-style-type: none;
-
+ .features figure img {
+    border: 1px solid white;
+    width: 200px;
+    box-shadow: gray 0 0 10px;
+    border-radius: 50%;
+    
+     
+     
  }
 
- li {
-     display: inline-block;
-     margin-right: 20px;
- }
+ /* Footer */
 footer{
     background: black;
-    padding:10px 20px;
+    color: gray;
+    font-size:  12px;
+    padding:20px 20px;
+    text-align: center;
 
 }
