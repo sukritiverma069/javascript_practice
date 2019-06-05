@@ -70,7 +70,7 @@ ul {
       width:95.8%;
       height:300px;
       background-color: #FBFCFC;
-      border:2px solid whitesmoke;
+      border:2px solid rgb(196, 170, 170);
       display:flex;
       flex-direction: row;
       justify-content: space-around;
@@ -145,26 +145,29 @@ ul {
   }
 
   .footer {
-      background-color: black;
-      color: gray;
+      position: fixed;
+      left:0;
+      bottom:0;
       width: 100%;
+      background-color: black;
+      text-align: left;
+      height: 50px;
+    
+  }
 
+  .footer-left{
+      color: gray;
+      padding-top: 20px;
+  }
+
+  .copyright {
+      color:gray;
+      text-align: right;
+      padding bottom: 50px;
       
   }
 
-  .footer-left {
-    position: fixed;
-     
-     bottom: 19.5px;
-     
 
   
-
-}
-
-
-
-  .copyright {
-      text-align: right;
-  }
+ 
 
