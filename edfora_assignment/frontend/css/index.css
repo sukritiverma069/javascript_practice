@@ -70,7 +70,7 @@ ul {
       width:95.8%;
       height:300px;
       background-color: #FBFCFC;
-      border:2px solid rgb(196, 170, 170);
+      
       display:flex;
       flex-direction: row;
       justify-content: space-around;
@@ -81,7 +81,7 @@ ul {
   .todays-session{
       padding:20px;
       width:50%;
-      height:100%;
+      height:90%;
       border:2px solid whitesmoke;
   }
   .upcoming-session{
@@ -95,9 +95,9 @@ ul {
       font-size: 20px;
   }
   .completed-session{
-  
-      width:45%;
-      height:100%;
+      padding: 20px;
+      width:50%;
+      height:90%;
       border:2px solid whitesmoke;
       background-color: white;
       
@@ -108,6 +108,10 @@ ul {
       height:100%;
       border:2px solid whitesmoke;
       background-color: white;
+  }
+
+  .vr {
+    
   }
   .payment-details{
       height:80%;
@@ -161,6 +165,7 @@ ul {
     width:33%;
     height:31px;
     padding-top: 20px;
+    margin-left: 10px;
 
   }
 
@@ -170,6 +175,7 @@ ul {
     width:33%;
     height:31px;
     padding-top: 5px;
+    margin-right: -90px;
 
 
   }
