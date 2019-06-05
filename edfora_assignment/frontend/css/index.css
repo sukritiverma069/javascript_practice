@@ -156,15 +156,22 @@ ul {
   }
 
   .footer-left{
-      color: gray;
-      padding-top: 20px;
+    color: gray;
+    float:left;
+    width:33%;
+    height:31px;
+    padding-top: 20px;
+
   }
 
-  .copyright {
-      color:gray;
-      text-align: right;
-      padding bottom: 50px;
-      
+  .copyright{
+    color: gray;
+    float:right;
+    width:33%;
+    height:31px;
+    padding-top: 5px;
+
+
   }
 
 
