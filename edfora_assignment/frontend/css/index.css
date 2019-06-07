@@ -86,7 +86,7 @@ ul {
   }
   .upcoming-session{
       width:50%;
-      height:100%;
+      height:80%;
       background-color: #FBFCFC  ;
       border:2px solid whitesmoke;
   }
@@ -104,6 +104,7 @@ ul {
 
 span {
     font-size: 30px;
+    color: orange;
 }
 
 .down-container-lower-left{
@@ -111,7 +112,8 @@ span {
 }
 
 .down-container-lower-right{
-    width: 50%;
+    width: 40%;
+    height: 50%;
     
 }
 
@@ -126,10 +128,15 @@ span {
 }
 .down-container-lower-right-lower-left {
     width: 50%;
+    font-size: 15px;
     float:left;
     height:31px;
     padding-top: 20px;
     margin-left: 30px;
+    border-right: 3px solid whitesmoke;
+    height: 50%;
+    font-family: sans-serif, Helvetica, sans-serif;
+    
 }
 
 .down-container-lower-right-lower-right {
@@ -139,8 +146,28 @@ span {
     float:right;
     height:31px;
     padding-top: 50px;
-    margin-right: -60px; 
+    margin-right: -60px;
+    padding-top: 2px; 
 }
+
+.ongoing-batches {
+    border-bottom: 1px solid rgb(231, 225, 225);
+    width: 50%;
+    padding: 5px;
+}
+
+.active-courses {
+    border-bottom: 1px solid rgb(231, 225, 225);
+    width: 50%;
+    padding: 5px;
+}
+
+.number-of-students {
+    border-bottom: 1px transparent;
+}
+
+
+
 
 li .career-counselling .v-store .instant-doubt {
     padding: 40px;
@@ -193,6 +220,7 @@ li .career-counselling .v-store .instant-doubt {
       background-color: black;
       text-align: left;
       height: 50px;
+      
     
   }
 
