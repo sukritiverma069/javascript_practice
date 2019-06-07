@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            font family: Helvetica Neue Helvetica, Arial, sans-serif;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            display: inline-block;
+        }
+        .feature-box.sales {
+            display: flex;
+        }
+
+        
+        .feature-box.closeouts {
+            display: flex;
+        }
+
+        
+        .feature-box.sales div {
+            background: gray;
+            width: 100%;
+            margin: 1px;
+            
+        }
+
+        .feature-box.closeouts div {
+            background: orange;
+            width: 100%;
+            margin: 1px;
+        }
+
+        li:first-child 
+        {
+            background: red;
+
+        }
+    </style>
+</head>
+<body>
+
+<ul>
+    <li><a href = "index.html">Home</a></li>
+    <li><a href = "location.html">Location</a></li>
+    <li><a href = "contacts.html">Contacts</a></li>
+    <li><a href = "directions.html">Directions</a></li>
+</ul>
+
+<section class ="feature-box sales">
+    <div>section a</div>
+    <div>section b</div>
+    <div>section c</div>
+</section>
+
+<section class ="feature-box closeouts">
+<div>section d</div>
+<div>section e</div>
+</section>
+
+
+
+</body>
+</html>

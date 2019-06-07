@@ -1,0 +1,90 @@
+body{
+    background:rgb(75, 74, 69);
+    color: white;
+    font-family: Helvetica Neue Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+
+header{
+    background-color: black;
+    background-image: url("images/quiche.jpg");
+    background-size: 100%;
+    background-position:  center;
+    height: 400px; 
+    padding: 20px;
+    text-align: center;
+    
+}
+
+header a {
+    color: white;
+    text decoration: none;
+    text-transform: uppercase;
+    margin-top: 40px;
+
+}
+header .logo a {
+    background-image: url("images/logo.png");
+    background-size: 300px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 80px;
+    position: relative;
+    text-indent: -9999999px;
+    top: -30px;
+    width: 300px;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+/* Features */
+
+ .features{
+     background: white;
+     color: gray;
+     padding: 20px;
+     display:flex;
+     flex-direction: row;
+     
+ }
+
+ .features figure {
+     margin: auto;
+     text-align: center;
+     text-transform: uppercase;
+     width: 200px;
+     
+ }
+
+ .features figure img {
+    border: 1px solid white;
+    width: 200px;
+    box-shadow: gray 0 0 10px;
+    border-radius: 50%;
+    
+     
+     
+ }
+
+ /* Footer */
+footer{
+    background: black;
+    color: gray;
+    font-size:  12px;
+    padding:20px 20px;
+    text-align: center;
+
+}
