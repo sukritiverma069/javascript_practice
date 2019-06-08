@@ -78,21 +78,46 @@ ul {
       
       
   }
-  .todays-session{
+  .uppper-container-upper-left{
       padding:20px;
       width:50%;
       height:90%;
       border:2px solid whitesmoke;
   }
-  .upcoming-session{
+  .upper-container-upper-right{
       width:50%;
       height:80%;
       background-color: #FBFCFC  ;
       border:2px solid whitesmoke;
   }
 
- 
+  .upcoming-session-title{
+     font-size: 20px;
+     font-weight:bold; 
+  }
 
+  .sessions-status {
+  border-radius: 25px;
+  background: white;
+  padding-bottom: 20px; 
+  width: 400px;
+  height: 10px;  
+  border: 3px solid whitesmoke;
+  text-align: center;
+  position: relative;
+  }
+    
+  .kids-images{
+      margin-left: 80px;
+      
+}
+img {
+    border-radius: 50%;
+}
+
+.sessions{
+    margin-top: 100px;
+}
   
 
   .image {
@@ -109,13 +134,21 @@ span {
 
 .down-container-lower-left{
     width: 50%;
+    height: 50%;
 }
 
 .down-container-lower-right{
     width: 40%;
     height: 50%;
     
+    
 }
+
+   .down-arrow {
+    content: "\2193";
+  }
+    
+
 
 .down-container-lower-right-upper {
     height: 20px;
@@ -134,7 +167,7 @@ span {
     padding-top: 20px;
     margin-left: 30px;
     border-right: 3px solid whitesmoke;
-    height: 50%;
+    height: 100%;
     font-family: sans-serif, Helvetica, sans-serif;
     
 }
