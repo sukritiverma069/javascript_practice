@@ -114,6 +114,24 @@ ul {
      margin-left: 50px;
  }
 
+ .join-now{
+     
+  border-radius: 25px;
+  background: white;
+  padding-bottom: 20px; 
+  width: 100px;
+  height: 5px;  
+  border: 3px solid whitesmoke;
+  text-align: center;
+  position: relative;
+ }
+
+ .start {
+ font-size: 10px;
+ margin-top: -40px;
+ margin-left: 110px;
+ color: gray;
+ }
 
   }
   .upper-container-upper-right{
@@ -126,17 +144,25 @@ ul {
   .upcoming-session-title{
      font-size: 20px;
      font-weight:bold; 
+     margin-left:30px;
+     margin-top:20px;
+  }
+
+  .session-info{
+      margin-left:30px;
   }
 
   .sessions-status {
   border-radius: 25px;
   background: white;
-  padding-bottom: 20px; 
+  padding-bottom: 10px; 
+  width: fit-content;
   width: 400px;
   height: 10px;  
   border: 3px solid whitesmoke;
   text-align: center;
   position: relative;
+  margin-left: 30px;
   }
     
 img{
