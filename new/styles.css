@@ -1,52 +1,123 @@
-.container-3{
-    background: white;
-    color: gray;
-    padding: 20px;
-    display:flex;
-    flex-direction: row;
-    border: 1px solid white;
+.container-1 {
+width: 100%;
+height: 200px;
+}
+
+.container-1 ul {
+list-style-type: none;
+display: flex;
+flex-direction: row;
+float: right;
+position: relative;
+padding: 10px;
+
+}
+
+
+/* container-2 */
+
+.container-2 {
+width: 100%;
+height: 300px;
+}
+
+.container-2 figure {
+margin: auto;
+text-align: center;
+text-transform: none;
+width: 100px;
+}
+
+.container-2 figure img {
+    width: 30px;
+}
+ 
+.container2-1 {
+  display: flex;
+  flex-direction: row;
     
+}
+
+.container2-2 li{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+
+
+
+/* container3*/
+.container-3{
+width: 100%;
+height: 200px;
+background: white;
+color: gray;
+padding: 20px;
+display:flex;
+flex-direction: row;
+border: 1px solid white;
+
 }
 
 .container-3 h1 {
-    color: red;
-    text-align: center;
+color: red;
+text-align: center;
 }
 
 .container-3 figure {
-    margin: auto;
-    text-align: center;
-    text-transform: uppercase;
-    width: 200px;
-    
+margin: auto;
+text-align: center;
+text-transform: uppercase;
+width: 200px;
+
 }
 
 .container-3 figure img{
-    border: 1px solid white;
-    width: 100px;
-    box-shadow: gray 0 0 10px;
-    border-radius: 12px;
-      
+border: 1px solid white;
+width: 100px;
+box-shadow: gray 0 0 10px;
+border-radius: 12px;
+
 }
 figcaption {
-    display: table-caption;
-    caption-side: top;
-  }
+display: table-caption;
+caption-side: top;
+}
+
+
+
+
+/*  congtaner-4*/
+.container-4 {
+    width: 100%;
+    height: 200px;
+    border: 2px solid whitesmoke;
+}
+
+.container-4 h3 {
+float: right;
+}
+
+.container-4 p{
+margin-left: 3px;
+
+}
 
 .form {
     float: right;
     display: flex;
     flex-direction: column;
-}
+    margin-bottom: 10px;
+    clear: both;
+    }
 
-.container-4 h3 {
-    float: right;
-    
-}
 
 footer{
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 50px;
+clear: both;
+position: relative;
+padding: 10px;
+margin-top: -200px;
+color: red;
+background: rgb(127, 166, 197);
 }
