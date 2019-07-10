@@ -118,8 +118,34 @@ h2:after {
    font-size: 120%;
    line-height: 120%;
    vertical-align: middle;
-    
+
+
+   /*Secret code to align text and icons*/
+   line-height: 120%;
+   vertical-align: middle;
+   margin-top: -3px;
 }
+
+/*------------------LINKS--------------------------*/
+
+a, a:link,
+a:visited {
+    color: #cf6d17;
+    text-decoration: none;
+    padding-bottom: 1px;
+    border-bottom: 1px solid #e67e22;
+    transition: color 0.2s, border-bottom 0.2s;
+}
+
+a, a:hover,
+a:active {
+    color: black;
+    border-bottom: 1px solid transparent;
+} 
+
+
+
+
 /*-------BUTTONS--------*/
 
 .btn:link,
@@ -328,14 +354,30 @@ background-color: whitesmoke;
     margin-right:25px;
 }
 
+.btn-app:link,
+.btn-app:visited {
+    border: 0;
+} 
+
+
 .btn-app img {
     height: 50px;
     width: auto;
     margin-right: 10px;
 
 }
-
+/*------------------------------------------*/
 /*----------------CITIES---------------*/
+/*------------------------------------------*/
+
+.section-cities{
+    background-color: white;
+}
+
+}
+.section-cities h3 {
+    font-weight:300;
+}
 
 .box img {
     width: 100%;
@@ -346,4 +388,42 @@ background-color: whitesmoke;
 .city-feature {
     margin-bottom: 5px;
 }
+
+/*------------------------------------------*/
+/*----------------TESTIMONIALS---------------*/
+/*------------------------------------------*/
+
+
+.section-testimonials img {
+  width: 10%;
+  height:auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
