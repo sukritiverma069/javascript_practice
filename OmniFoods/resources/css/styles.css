@@ -404,16 +404,23 @@ blockquote {
     padding:2%;
     font-style: italic;
     line-height: 145%;
+    position: relative;
+    margin-top: 40px;
+}
+
+.section-testimonials blockquote:before {
+    content: "\201C";
+    font-size: 500%;
+    display:block;
+    position: absolute;
+    top: -5px;
+    left: -5px;
 }
 
 .section-testimonials cite {
     font-size: 90%;
     margin-top: 50px;
     display: block;
-}
-.section-testimonials blockquote:before {
-    content: "A";
-    font-size: 400%;
 }
 
 .section-testimonials cite img {
@@ -424,6 +431,53 @@ blockquote {
     vertical-align: middle;
     margin-top: 25px;
 }
+
+/*------------------------------------------*/
+/*----------------PLANS---------------*/
+/*------------------------------------------*/
+
+.section-plans {
+    background-color: whitesmoke;
+ 
+}
+
+.plan-box {
+    background-color: white;
+    border-radius: 5px;
+    width: 90%;
+    margin-left: 5%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
