@@ -542,6 +542,7 @@ input[type=checkbox] {
 
 footer {
     background-color: rgb(58, 57, 57);
+    padding: 50px;
 }
 
 .footer-nav {
@@ -561,13 +562,34 @@ footer {
     margin-right: 20px;
 }
 
+.footer-nav li:last-child,
+.social-icons li:last-child {
+    margin-right: 0;
+}
+
+.footer-nav li a:link,
+.footer-nav li a:visited
+{
+    text-decoration: none;
+    border: 0;
+    color: rgb(112, 111, 111);
+}
+
+.icon-footer {
+    color: rgb(112, 111, 111);
+}
 
 
+.footer-nav li a:hover,
+.footer-nav li a:active {
+    color: rgb(156, 151, 151);
+}
 
-
-
-
-
+footer p {
+    color: rgb(112, 111, 111);
+    text-align: center;
+    margin-top: 30px;
+}
 
 
 
