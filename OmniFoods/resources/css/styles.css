@@ -565,3 +565,14 @@ footer {
     margin-right: 0;
 }
 
+.footer-nav a:link,
+.footer-nav a:visited {
+    text-decoration: none;
+    color: rgb(155, 151, 151);
+    
+}
+
+.logos a:visited,
+.logos a:visited {
+    color: rgb(155, 151, 151);
+}
