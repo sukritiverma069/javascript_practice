@@ -20,13 +20,41 @@
         .works-step { margin-bottom: 40px;}
         .works-step:last-of-type {margin-bottom: 60px;}
 
-        .app-screen {width:50%}
+        .app-screen {width:50%;}
+
+        .icon-small {
+            width: 16px;
+            margin-right: 1px;
+        }
+        
+        .city-feature {
+            font-size: 80%;}
+
+        .plan-box {
+            width:100%;
+            margin-left: 0%;
+        }
     }
 
 
 
-/*small phones to small tablets*/ 
+/*small phones to small tablets 481 to 767*/ 
 @media only screen and (max-width:767px){
+
+        body { font-size: 14px;}
+        section { padding: 20px 0;}
+
+        .row,
+        .hero-text-box { padding: 0 3%;}
+
+        .col { width:100%; }
+
+
+
+
+
+
+
 
 }
 
