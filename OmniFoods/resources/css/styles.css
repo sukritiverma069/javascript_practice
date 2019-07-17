@@ -8,13 +8,15 @@
     box-sizing: border-box;
 }
 
-html {
+html,
+body {
     background-color:white;
     color: rgb(71, 71, 71);
     font-family: 'Lato', Arial , sans-serif;
     font-weight: 300;
     font-size:20px;
     text-rendering: optimizeLegibility;
+    overflow-x: hidden;
 }
 
 .clearfix {zoom: 1}
@@ -525,7 +527,7 @@ textarea {
     width: 100%;
     padding: 7px;
     border-radius: 5px;
-    border: 1px solid rgb(97, 97, 97);
+    border: 1px solid rgb(197, 193, 193);
 }
 
 input[type=checkbox] {
