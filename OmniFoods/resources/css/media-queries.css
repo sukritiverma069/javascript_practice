@@ -20,46 +20,84 @@
         .works-step { margin-bottom: 40px;}
         .works-step:last-of-type {margin-bottom: 60px;}
 
-        .app-screen {width:50%;}
+        .app-screen {width:50%}
 
         .icon-small {
             width: 16px;
-            margin-right: 1px;
+            margin-right: 5px;
         }
-        
-        .city-feature {
-            font-size: 80%;}
+
+        .city-feature { font-size: 80%}
 
         .plan-box {
-            width:100%;
+            width: 100%;
             margin-left: 0%;
         }
+
+        .plan-price {font-size: 250%;}
+
+        .contact-form { width: 80%;}
     }
 
 
 
-/*small phones to small tablets 481 to 767*/ 
+/*small phones to small tablets 481 to 767px*/ 
 @media only screen and (max-width:767px){
-
-        body { font-size: 14px;}
-        section { padding: 20px 0;}
-
-        .row,
-        .hero-text-box { padding: 0 3%;}
-
-        .col { width:100%; }
+    body {font-size:16px;}
+    section { padding: 30px 0;}
 
 
+    .row,
+    .hero-text-box { padding: 0 4%;
+    font-size: 70%;}
 
+    .col {
+         width: 100%;
+         margin: 0 0 4% 0;
+        }
 
+    h1 { font-size: 180%;}
+    h2 { font-size: 120%;}
 
+    .long-copy {
+        width:100%;
+        margin-left: 0%;
+    }
 
+    .app-screen {
+        width: 20%;
+        margin-top: -30px;
+    }
 
+    .steps-box:first-child { text-align: center;}
 
-}
+    .works-step div{
+        height:20px;
+        width:20px;
+        font-size: 100%;
+        padding: 2px;
+        margin-right:25px;
+        vertical-align: middle;
+    }
+
+    .works-step {margin-bottom: 20px;}
+    .works-step:last-of-type {margin-bottom: 20px;}
+
+    .btn-app img {
+        height: 20px;
+        width: auto;
+        
+        }
+    
+
+    }
 
 
 /*small phones: from 0 to 480px*/
 @media only screen and (max-width:480px){
+   section { padding: 25px 0;}
+   .contact-form { width: 100%;}
 
+    
+  
 }
