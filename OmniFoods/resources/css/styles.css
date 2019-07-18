@@ -581,14 +581,11 @@ footer {
 .footer-nav a:link,
 .footer-nav a:visited {
     text-decoration: none;
-    color: rgb(155, 151, 151);
-    transform
-    
+    color: rgb(155, 151, 151);    
 }
 
-.social-link a:visited,
+.social-link a:link,
 .social-link a:visited {
     color: rgb(155, 151, 151);
 }
 
-}
