@@ -1,0 +1,105 @@
+* {
+    margin:0;
+    padding:0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+html,
+body {
+    background-color:rgb(250, 245, 245);
+    color: rgb(71, 71, 71);
+    font-family: 'Lato', Arial , sans-serif;
+    font-weight: 300;
+    font-size:20px;
+    text-rendering: optimizeLegibility;
+}
+
+section {
+    padding: 8px 0;
+}
+
+.icon-big {
+    margin-left: 690px;
+    font-size: 400%;
+    display: block;
+    color: #493ea7;
+    margin-bottom: 10px;
+
+}
+
+
+.section-form {
+    width:30%;
+    height: auto;
+    margin: 0 auto;
+    border: 1px solid rgb(219, 216, 216);
+    background-color: white;
+    padding: 30px;
+    margin-top:50px;
+    -webkit-box-shadow: 0 2px 2px rgb(231, 231, 231);
+            box-shadow: 0 2px 2px rgb(231, 231, 231);
+
+}
+
+.row {
+    padding-bottom: 20px;
+}
+
+.btn:link,
+.btn:visited {
+    display: inline-block;
+    padding: 10px 30px;
+    font-weight: 300;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-left: 70px;
+    -webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+    
+   
+}
+
+.btn:link,
+.btn:visited {
+    background-color: #493ea7;
+    border: 1px solid #1940befb;
+    color: white;
+    margin-right: 15px;
+    
+}
+input[type=text],
+input[type=password]
+ {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgb(197, 193, 193);
+}
+
+input[type=checkbox] {
+    margin: 10px 5px 10px 0;
+}
+
+.checkbox {
+    float: left;
+}
+
+.button {
+    float: right;   
+    padding:
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
