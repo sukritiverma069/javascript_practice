@@ -9,52 +9,57 @@ html,
 body {
     background-color:rgb(250, 245, 245);
     color: rgb(71, 71, 71);
-    font-family: 'Lato', Arial , sans-serif;
-    font-weight: 300;
-    font-size:20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    font-size:15px;
     text-rendering: optimizeLegibility;
 }
 
-section {
-    padding: 8px 0;
-}
+
 
 .icon-big {
-    margin-left: 641px;
-    font-size: 400%;
-    display: block;
+    margin-top: 40px;
+    margin-left: 720px;
+    font-size: 550%;
     color: #493ea7;
-    margin-bottom: -5px;
+    }
 
-}
-
+/*---------------------FORM------------------*/
 
 .section-form {
-    width:30%;
+    width:25%;
     height: auto;
     margin: 0 auto;
     border: 1px solid rgb(219, 216, 216);
     background-color: white;
     padding: 20px;
+    padding-bottom: 60px;
     margin-top:50px;
     -webkit-box-shadow: 0 2px 2px rgb(231, 231, 231);
             box-shadow: 0 2px 2px rgb(231, 231, 231);
 
 }
 
+.section-form input {
+    margin-top: -6px;
+}
+
 .section-form div {
     padding: 5px;
 }
 
+/*---------------------BUTTON------------------*/
+
+
 .btn {
     float: right;
-    margin-top: -50px;
-    vertical-align: middle;
+    margin-top: 10px;
+    
 }
 .btn:link,
 .btn:visited {
     display: inline-block;
-    padding: 6px 15px;
+    padding: 10px 20px;
     font-weight: 300;
     text-decoration: none;
     border-radius: 5px;
@@ -90,25 +95,34 @@ input[type=password]
 
 input[type=checkbox] {
     margin: 10px 5px 10px 0;
+    zoom: 2;
+    border: 1px solid white;
+    vertical-align: middle;
+    
+  
 }
 
 .checkbox {
     float: left;
+    
+    
 }
 
+/*---------------------SUPPORT TEXT------------------*/
+
 .support-text {
+
     text-align: left;
-    margin-left: 500px;
+    margin-left: 600px;
+    margin-top: 20px;
+    
+
 }
 
 .support-text p {
     padding: 10px;
 }
 
-input[type=checkbox] {
-    zoom: 1.5;
-    vertical-align: middle;
-}
 
 
 
