@@ -58,5 +58,12 @@ $(document).ready(function() {
     }
   });
 
+  /*animations on sroll*/ 
+  $('.js--wp-1').waypoint(function(direction) {
+    $('.js--wp-1').addClass('animate fadeIn');
+  })
+
+
+
 });
 

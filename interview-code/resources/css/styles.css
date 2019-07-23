@@ -20,11 +20,11 @@ section {
 }
 
 .icon-big {
-    margin-left: 690px;
+    margin-left: 641px;
     font-size: 400%;
     display: block;
     color: #493ea7;
-    margin-bottom: 10px;
+    margin-bottom: -5px;
 
 }
 
@@ -35,21 +35,26 @@ section {
     margin: 0 auto;
     border: 1px solid rgb(219, 216, 216);
     background-color: white;
-    padding: 30px;
+    padding: 20px;
     margin-top:50px;
     -webkit-box-shadow: 0 2px 2px rgb(231, 231, 231);
             box-shadow: 0 2px 2px rgb(231, 231, 231);
 
 }
 
-.row {
-    padding-bottom: 20px;
+.section-form div {
+    padding: 5px;
 }
 
+.btn {
+    float: right;
+    margin-top: -50px;
+    vertical-align: middle;
+}
 .btn:link,
 .btn:visited {
     display: inline-block;
-    padding: 10px 30px;
+    padding: 6px 15px;
     font-weight: 300;
     text-decoration: none;
     border-radius: 5px;
@@ -63,10 +68,17 @@ section {
 .btn:link,
 .btn:visited {
     background-color: #493ea7;
-    border: 1px solid #1940befb;
     color: white;
     margin-right: 15px;
     
+}
+
+.btn:hover,
+.btn-active,
+input[type=submit]:hover,
+input[type=submit]:active {
+    background-color: #1940befb;
+
 }
 input[type=text],
 input[type=password]
@@ -84,12 +96,19 @@ input[type=checkbox] {
     float: left;
 }
 
-.button {
-    float: right;   
-    padding:
+.support-text {
+    text-align: left;
+    margin-left: 500px;
 }
 
+.support-text p {
+    padding: 10px;
+}
 
+input[type=checkbox] {
+    zoom: 1.5;
+    vertical-align: middle;
+}
 
 
 
