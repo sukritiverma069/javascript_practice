@@ -1,0 +1,75 @@
+@media only screen and (max-width:1200px){
+    body { font-size: 12px;}
+
+    .section-form {
+        width:30%;
+        height: auto;
+        }
+
+    .icon-big {
+        margin-top: 2%;
+        margin-left: 46%;
+        font-size: 700%;
+        }
+
+    .checkmark {
+        height: 15px;
+        width: 13px;
+        margin-top: 5px;
+
+    }
+
+    .box p {
+        margin-left:20px;
+        margin-top: 5.5px;
+        
+    }
+            
+}
+
+
+
+
+
+/*small tablet to big tablet: from 768 to 1023px*/
+@media only screen and (max-width:1023px){
+
+body { font-size: 12px;}
+
+.section-form {
+width:35%;
+height: auto;
+}
+
+.icon-big {
+margin-top: 3%;
+margin-left: 45%;
+font-size: 550%;
+}
+
+.btn:link,
+.btn:visited {
+padding: 3.5%;
+font-weight: 200;
+}
+.checkmark {
+height: 2.5%;
+width: 12px;
+margin-top: 5px;
+
+}
+
+.box p {
+margin-left: 20px;
+margin-top: 5px;
+
+}
+
+.support-text {
+margin-left: 35%;
+margin-top: 20px;
+
+
+}
+
+}
