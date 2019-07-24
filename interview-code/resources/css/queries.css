@@ -1,3 +1,40 @@
+/* For 1366 Resolution */  
+@media only screen   
+and (min-width: 1200px)  
+and (max-width: 1366px)  
+{ 
+    body {font-size: 14px;}
+    .form {
+        width:30%;
+        height: auto;
+        }
+
+    figure img {
+        margin-top: 4%;
+        margin-left: 46%;
+        font-size: 700%;
+        }
+
+    .support-text {
+        margin-left: 38%;
+        }  
+
+    .checkmark {
+        height: 15px;
+        width: 15px;
+        margin-top: 5px;
+    
+        }
+
+    .box p {
+        margin-left:20px;
+        margin-top: 5.5px;
+        
+            
+} 
+
+
+
 @media only screen and (max-width:1200px){
     body { font-size: 12px;}
 
@@ -6,7 +43,7 @@
         height: auto;
         }
 
-    .icon-big {
+    figure img {
         margin-top: 2%;
         margin-left: 46%;
         font-size: 700%;
@@ -24,11 +61,12 @@
         margin-top: 5.5px;
         
     }
+
+    .support-text {
+        margin-left: 38%;
+    } 
             
 }
-
-
-
 
 
 /*small tablet to big tablet: from 768 to 1023px*/
@@ -41,7 +79,7 @@ width:35%;
 height: auto;
 }
 
-.icon-big {
+figure img {
 margin-top: 3%;
 margin-left: 45%;
 font-size: 550%;
@@ -68,8 +106,6 @@ margin-top: 5px;
 .support-text {
 margin-left: 35%;
 margin-top: 20px;
-
-
 }
 
 }
