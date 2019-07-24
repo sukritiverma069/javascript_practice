@@ -26,7 +26,7 @@ body {
 
 /*---------------------FORM------------------*/
 
-.section-form {
+.form {
     width:25%;
     height: auto;
     margin: 0 auto;
@@ -40,11 +40,11 @@ body {
 
 }
 
-.section-form input {
+.form input {
     margin-top: -6px;
 }
 
-.section-form div {
+.form div {
     padding: 5px;
 }
 
