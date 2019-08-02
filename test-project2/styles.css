@@ -77,12 +77,12 @@ body {
 }
 
 .pizza__tag {
-    font-size: 13px;
+    font-size: 10px;
     text-transform: uppercase;
     color: white;
     padding: 2px 7px;
     border-radius: 100px;
-    margin-left: 3px;
+    margin-left: 5px;
     display: flex;
     align-items: center;
 }
@@ -113,6 +113,7 @@ body {
     font-weight: 700;
 
     display: flex;
+    align-items: center;
     
 
 }
