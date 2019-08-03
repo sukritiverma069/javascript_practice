@@ -47,7 +47,6 @@ body {
 
     display: flex;
     flex-direction: column;
-    align-items: center;
     
 }
 
@@ -66,8 +65,8 @@ body {
 
 .pizza__title {
     display: flex;
-    
-    margin-bottom: 10px;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 .pizza__heading {
