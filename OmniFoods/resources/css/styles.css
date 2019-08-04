@@ -603,42 +603,10 @@ input[type=checkbox] {
 /*----------------FOOTER---------------*/
 /*------------------------------------------*/
 
-footer {
-    background-color: rgb(39, 39, 39);
-}
 
-.footer-nav {
-    list-style: none;
-    float:left;
-}
 
-.social-links {
-    list-style: none;
-    float:right;
-}
 
-.footer-nav li,
-.social-links li {
-    display: inline-block;
-    margin-right: 20px;
-}
-
-.footer-nav li:last-child,
-.social-links li:last-child {
-    margin-right: 0;
-}
-
-.footer-nav a:link,
-.footer-nav a:visited {
-    text-decoration: none;
-    color: rgb(155, 151, 151);    
-}
-
-.social-link a:link,
-.social-link a:visited {
-    color: rgb(155, 151, 151);
-}
-
+  
 /*------------------------------------------*/
 /*----------------ANIMATIONS---------------*/
 /*------------------------------------------*/
