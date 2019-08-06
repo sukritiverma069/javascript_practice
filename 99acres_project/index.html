@@ -10,6 +10,7 @@
     <link rel="stylesheet"  type = "text/css" href="resources/css/styles.css">
     <link rel="stylesheet"  type = "text/css" href="resources/css/queries.css">
     <link rel="stylesheet"  type = "text/css" href="vendors/css/Grid.css">
+    <link rel="stylesheet"  type = "text/css" href="vendors/css/ionicons.min.css">
     
     
     
@@ -18,46 +19,50 @@
       
 <div class = "form">
 <form method = "post "action="#" >
-                <figure>
-                        <img class = "logo" src="resources/css/images/99acres_owler_20190225_063855_original.png" alt="99acres logo">
-                </figure>
-
-                <div>
+                <div class = "header">
+                        <p>99Acres.com</p>
                         <h1>LOG IN</h1>
+                
+                        
                 </div>
 
                 <div class = "row">
-                        <label for="name"></label>
-                </div>
-                <div>
-                        <input type = "text" name = "name" id = "name" placeholder = "Username" required>
-                </div> 
+                        <input type = "text" name = "name" id = "username" placeholder = "Username" required>
+                        </div> 
+                
+                
                 
                 <div class = "row">
-                        <label for="password"> </label>
-                </div>
-                <div>
                         
+                
                         <input type = "password" name = "password" id = "password" placeholder = "Password"  required>
                 </div> 
+                
+                
+                <div class = "row">
+                                <span>
+                                        <input type="checkbox" id="oddsPref" name="oddsPref"/>
+                                        <label>Remember Me</label>
+                                </span>
+                        <a class = "forgot-password" href="change-password.html">Forgot Password?</a> 
+                </div>
 
                 <div class = "row">
-                        <div class = "box">
-                                <input type = "checkbox" name = "checkbox" >
-                                <span class = "checkmark"></span> <p>Remember Me</p>
-                        </div>
                         <div>
-                                <a class ="btn" href="#">Log In</a>
+                                <a class ="btn" id = "btn" onClick = "getLoginStatus()" href="#">Log In</a>
                         </div>
                 </div>
 
-                <div >
-                       <a class = "forgot-password" href="#">Forgot Password?</a> 
-                </div>
+                <footer class = "row">
+                   <a  class = "sign-up" href="signup.html">Not a member Already? Sign Up Now.</a>
+                </footer>
+
+                
         </form>
         </div>     
 
-
+        <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+        <script src = "js/script.js"></script>
 
 </body>
 

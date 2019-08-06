@@ -7,7 +7,7 @@
 
 html,
 body {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("images/pexels-photo-374870\ \(1\).jpeg");
+    background-image: linear-gradient(rgba(252, 247, 247, 0.541), rgba(209, 204, 204, 0.986)),url("images/pexels-photo-374870\ \(1\).jpeg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -18,23 +18,18 @@ body {
     text-rendering: optimizeLegibility;
 }
 
-/*---------------------IMAGE-----------------*/
 
-figure img {
-    margin-top: 40px;
-    margin-left: 720px;
-    font-size: 20%;
-   
-}
+
+
 
 /*---------------------FORM------------------*/
 
 .form {
-    width: 25%;
-    height: 40;
+    background: linear-gradient(to bottom right, rgba(16, 82, 204, 0.904), rgba(128, 0, 128, 0.63));
+    width: 30%;
+    height: 600px;
     margin: 0 auto;
-    border: 1px solid rgb(219, 216, 216);
-    background-color: white;
+    border-radius: 12px;
     padding: 20px;
     padding-bottom: 60px;
     margin-top:50px;
@@ -43,31 +38,32 @@ figure img {
 
 }
 
-.form input {
-    margin-top: -6px;
+.form div {
+    padding: 20px;
+    
 }
 
-.form div {
-    padding: 5px;
-}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(180, 179, 179);
+    opacity: 1; /* Firefox */
+  }
 
 /*---------------------BUTTON------------------*/
 
 
 .btn {
     float: right;
-    margin-top: -30px;
-    color: rgb(141, 138, 138);
-    margin-right: -5px;
     
 }
+
+
 .btn:link,
 .btn:visited {
     display: inline-block;
     padding: 10px 20px;
     font-weight: 300;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 50px;
     -webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;
     transition: background-color 0.2s, border 0.2s, color 0.2s;
     
@@ -76,8 +72,8 @@ figure img {
 
 .btn:link,
 .btn:visited {
-    background-color: #5789b8;
-    color: white;
+    background-color: rgb(214, 213, 213);
+    color:gray;
     
     
 }
@@ -92,88 +88,83 @@ input[type=submit]:active {
 
 /*---------------------FORM------------------*/
 input[type=text],
-input[type=password]
+input[type=password],
+input[type=email]
+
  {
+    color: white;
     width: 100%;
     padding: 10px;
-    border: 1px solid rgb(197, 193, 193);
+    border: none;
+    border-bottom: 1px solid white;
+    margin-top: 6px;
+    background: transparent;
 }
 
 input[type=checkbox] {
     margin: 10px 5px 10px 0;
     zoom: 1.5;
-    
-}
-
-.box input{
-    float: left;
-    opacity: 0;
-    height: 0;
-    width: 0;
-
-}
-
-.checkmark {
-    position: absolute;
     margin-top: 5px;
-    height: 16px;
-    width: 16px;
     background-color: white;
-    border: 1px solid gray;
-    margin-left: -10px;
-
-}
-
-
-.box:hover input ~ .checkmark {
-    background-color: #ccc;
-  }
-
-.box input:checked ~ .checkmark {
-    background-color: red;
-  }
-
-.checkmark::after{
-    content: "";
-    position: absolute;
-    display: none;  
-  }
-  
-.box input:checked ~ .checkmark:after {
-    display: block;
-  }
-
-.box .checkmark:after {
-    left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-  }
-
-.box p {
-    margin-left:30px;
-    margin-top: 5px;
+    vertical-align: middle;
     
 }
 
-h1 {
-    text-align: center;
-    color: white;
-}
+label{
+    font-size:14px;
+    margin-top: 5px;
+    vertical-align: middle;
+    color: rgb(180, 179, 179);
+  }
+
 
 .forgot-password {
-    
+    margin-top: 10px;
+    float: right;
+    color: rgb(180, 179, 179);
+    vertical-align: middle;
 }
  
-.logo{
-    margin-left: 90px;
+.header{
+    text-align: center;
+    font-size: 300%;
+    color: rgb(180, 179, 179);
 }
 
+ .header p {
+     display: inline-block;
+ }
+
+
+ .header h1 {
+     padding-top: 20px;
+     font-size: 60%;
+ }
+
+ footer {
+   text-align: center;
+ }
+ 
+ .sign-up {
+     vertical-align: -70px;
+     display: inline-block;
+     color: rgb(180, 179, 179);
+     text-decoration: none;
+     
+}
+
+.sign-up:hover,
+.sign-up:active {
+    display: inline-block;
+    padding: 10px 20px;
+    font-weight: 300;
+    text-decoration: underline;
+    border-radius: 5px;
+    -webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+    
+   
+}
 
 
 
