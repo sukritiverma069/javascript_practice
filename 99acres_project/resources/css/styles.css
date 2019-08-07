@@ -25,14 +25,13 @@ body {
 /*---------------------FORM------------------*/
 
 .form {
-    background: linear-gradient(to bottom right, rgba(16, 82, 204, 0.904), rgba(128, 0, 128, 0.63));
-    width: 30%;
-    height: 600px;
+    background: linear-gradient(to bottom right, rgb(45, 78, 141), rgba(204, 90, 204, 0.932));
+    width: 20%;
+    height: auto;
     margin: 0 auto;
     border-radius: 12px;
     padding: 20px;
-    padding-bottom: 60px;
-    margin-top:50px;
+    margin-top: 5px;
     -webkit-box-shadow: 0 2px 2px rgb(231, 231, 231);
             box-shadow: 0 2px 2px rgb(231, 231, 231);
 
@@ -52,14 +51,13 @@ body {
 
 
 .btn {
-    float: right;
+    margin-left: 100px;
     
 }
 
 
 .btn:link,
 .btn:visited {
-    display: inline-block;
     padding: 10px 20px;
     font-weight: 300;
     text-decoration: none;
@@ -82,7 +80,7 @@ body {
 .btn-active,
 input[type=submit]:hover,
 input[type=submit]:active {
-    background-color: #4055a0;
+    background-color: rgb(148, 145, 145);
 
 }
 
@@ -104,25 +102,24 @@ input[type=email]
 input[type=checkbox] {
     margin: 10px 5px 10px 0;
     zoom: 1.5;
-    margin-top: 5px;
     background-color: white;
     vertical-align: middle;
     
 }
 
 label{
-    font-size:14px;
-    margin-top: 5px;
-    vertical-align: middle;
+    font-size:12px;
+    margin-top: 15px;
+    margin-left: -5px;
     color: rgb(180, 179, 179);
+    vertical-align: middle;
   }
 
 
 .forgot-password {
-    margin-top: 10px;
+    margin-top: 15px;
     float: right;
     color: rgb(180, 179, 179);
-    vertical-align: middle;
 }
  
 .header{
