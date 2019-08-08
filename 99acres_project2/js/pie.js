@@ -8,9 +8,9 @@ var ctx2 = canvas.getContext('2d');
  //this is static loading for now 
  //when the backend api is availabla
  //we should be making a fetch or ajax call to get dynamic json response
- var pieChartJson = myGraphObject;
- var graphDataKeys = Object.keys(pieChartJson)
- var graphDataValues = graphDataKeys.map( (k) => pieChartJson[k])
+ var ChartJson = myGraphObject;
+ var graphDataKeys = Object.keys(ChartJson)
+ var graphDataValues = graphDataKeys.map( (k) => ChartJson[k])
 
 var data = {
     datasets: [{
