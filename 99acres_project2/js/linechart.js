@@ -1,12 +1,16 @@
 
-//drawChart(new Array(),new Array());
+var graphDataKeys = new Array("Proptiger", "99acres", "Housing", "Magicbricks");
+
+clearGraph();
+
+function clearGraph(){
+    drawChart(graphDataKeys,new Array());
+}
+
 function readUserData(){
-var userInputX = document.getElementById("title").value;
-var graphDataKeys = userInputX.split(",");
+
 var userInputY = document.getElementById("points").value;
 var graphDataValues = userInputY.split(",");
-console.log(graphDataKeys);
-console.log(graphDataValues);
 
 drawChart(graphDataKeys,graphDataValues)
 
@@ -49,8 +53,8 @@ let myChart = new Chart(ctx, {
     ]
 },
 options: {
-    responsive: true,
-    maintainAspectRatio: false,
+    //responsive: true,
+    //maintainAspectRatio: false,
     scales: {
         yAxes: [{
             ticks: {

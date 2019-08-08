@@ -37,15 +37,15 @@
   <div class = "row">
 
   <div class = "col span-1-of-3">
-        <canvas id="myChart" width = "150px" height = "150px"></canvas>
-        <p>Enter comma separated values</p>
-        <label for="title">Title</label> <input id="title" type="text" /> 
-        <br>
+        <canvas id="myChart" style="height: 270px; width: 100%;"></canvas>
 
-        <label for="name">Points</label><input id="points" type="text" />
+        
+
+        <label for="name">Points</label><input id="points" type="text" placeholder = "Enter Comma Separated data" />
         <br>
         <br/>
         <input type="button" value="Show Graph" onclick="readUserData();">
+        <input type="button" value="Clear Graph" onclick="clearGraph();">
         
         <div id="display"></div>
   </div>
