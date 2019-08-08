@@ -56,42 +56,11 @@ options: {
     legend: {
         display: true,
         labels: {
-            fontSize: 10,
+            fontSize: 0,
              }
      }
 
 }
 
 });
-
-var title=new Array();
-var names=new Array();
-
-
-function insert(){
-    var titleValue = document.getElementById('title').value;
-    var nameValue = document.getElementById('name').value;
-  
-    
-    title[title.length]=titleValue;
-    names[names.length]=nameValue;
-    console.log(title);
-    console.log(names);
-    
-
-    
-  }
-
-function show() {
-  var content="<b>All Elements of the Arrays :</b><br>";
-  for(var i = 0; i < title.length; i++) {
-     content +=title[i]+"<br>";
-     
-  }
-  for(var i = 0; i < names.length; i++) {
-     content +=names[i]+"<br>";
-  }
-  
-  document.getElementById('display').innerHTML = content;
-}
 
