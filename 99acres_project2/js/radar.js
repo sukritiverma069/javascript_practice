@@ -4,6 +4,7 @@ let myRadarChart = new Chart(ctx4, {
     data: {
         datasets: [{
             label: 'First dataset',
+            fontSize: 10,
             data: graphDataValues
         }],
         labels: graphDataKeys
@@ -14,7 +15,8 @@ let myRadarChart = new Chart(ctx4, {
             ticks: {
                 suggestedMin: 50,
                 suggestedMax: 100,
-                fontColor:'green'
+                fontColor:'green',
+                fontSize: 10
             }
         }
    

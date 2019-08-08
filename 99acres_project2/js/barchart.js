@@ -67,10 +67,19 @@ var myBarChart = new Chart(ctx1, {
         scales: {
           yAxes: [{
             ticks: {
+              fontSize: 10,
               min: 0
             }
+          }],
+          xAxes: [{
+            ticks: {
+              fontSize: 10,
+              
+            }
           }]
+
         }
+
     },
 })
 

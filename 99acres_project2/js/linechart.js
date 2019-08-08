@@ -1,8 +1,24 @@
 
+//drawChart(new Array(),new Array());
+function readUserData(){
+var userInputX = document.getElementById("title").value;
+var graphDataKeys = userInputX.split(",");
+var userInputY = document.getElementById("points").value;
+var graphDataValues = userInputY.split(",");
+console.log(graphDataKeys);
+console.log(graphDataValues);
+
+drawChart(graphDataKeys,graphDataValues)
+
+}
+
+function drawChart(graphDataKeys,graphDataValues) {
+
 const ctx = document.getElementById('myChart');
-var ChartJson = myGraphObject;
-var graphDataKeys = Object.keys(ChartJson)
-var graphDataValues = graphDataKeys.map( (k) => ChartJson[k])
+
+//ctx.clearRect(0, 0, 150, 150);
+// var graphDataKeys = Object.keys(ChartJson)
+// var graphDataValues = graphDataKeys.map( (k) => ChartJson[k])
 
 let myChart = new Chart(ctx, {
     type: 'line',
@@ -39,7 +55,7 @@ options: {
         yAxes: [{
             ticks: {
                 suggestedMin: 0,
-                suggestedMax: 1500,
+                suggestedMax: 800,
                 fontSize : 10,
                 stepSize : 200
             }
@@ -56,7 +72,7 @@ options: {
     legend: {
         display: true,
         labels: {
-            fontSize: 0,
+            fontSize: 10,
              }
      }
 
@@ -64,3 +80,4 @@ options: {
 
 });
 
+}

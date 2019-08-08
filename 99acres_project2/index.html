@@ -42,20 +42,26 @@
         <label for="title">Title</label> <input id="title" type="text" /> 
         <br>
 
-        <label for="name">Names</label><input id="name" type="text" />
+        <label for="name">Points</label><input id="points" type="text" />
         <br>
         <br/>
-        <input type="button" value="Save" onclick="insert();">
+        <input type="button" value="Show Graph" onclick="readUserData();">
         
         <div id="display"></div>
   </div>
 
   <div class = "col span-1-of-3">
-          <canvas id="myBarChart" width = "250px" height = "250px"></canvas>
+          <canvas id="myBarChart" width = "300px" height = "300px"></canvas>
     </div>
 
     <div class = "col span-1-of-3">
-        <canvas id="myMixedChart" width = "250px" height = "250px"></canvas>
+        <canvas id="myMixedChart" width = "300px" height = "300px"></canvas>
+        <select>
+          <option value="March">March</option>
+          <option value="April">April</option>
+          <option value="May">May</option>
+          <option value="June">June</option>
+        </select>
    </div>
 
   </div>
@@ -66,24 +72,25 @@
 <div class = "row">
 
 <div class = "col span-1-of-3">
-    <canvas id="myPieChart" width = "10px" height = "10px"></canvas>
+    <canvas id="myPieChart" width = "300px" height = "300px"></canvas>
 </div>
 
 <div class = "col span-1-of-3">
-    <canvas id="myRadarChart" width = "10px" height = "10px"></canvas>
+    <canvas id="myRadarChart" width = "250px" height = "250px"></canvas>
 </div>
 
 <div class = "col span-1-of-3">
-    <canvas id="myScatterChart" width = "10px" height = "10px"></canvas>
+    <canvas id="myScatterChart" width = "150px" height = "150px"></canvas>
 </div>
 
 
 </div>
 
 <div class = "row">
-    <div class = "col span-1-of-3"> Value:
-    <input id="xValue" type="number" step="any" placeholder="Enter X-Value"> Y Value:
-    <input id="yValue" type="number" step="any" placeholder="Enter Y-Value">
+    <div class = "col span-1-of-3"> X Value:
+    <input id="xValue" type="text" step="any" placeholder="Enter X-Value"> <br>
+    Y Value:
+    <input id="yValue" type="text" step="any" placeholder="Enter Y-Value">
     <button id="renderButton">Add DataPoint & Render</button>
     <div id="chartContainer" style="height: 270px; width: 100%;">
     </div>

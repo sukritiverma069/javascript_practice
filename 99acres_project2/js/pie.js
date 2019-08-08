@@ -34,14 +34,14 @@ var options = {
                   display: true,
                   text: 'Market Share of Job Sites',
                   position: 'top',
-                  fontSize: 20
+                  fontSize: 10
               },
         rotation: -0.7 * Math.PI,
         responsive: true,
         legend: {
             display: true,
             labels: {
-                fontSize: 20,
+                fontSize: 10,
                  }
          }
         
