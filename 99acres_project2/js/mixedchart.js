@@ -1,10 +1,3 @@
-
-
-
-
-
-
-var dps = [];   //dataPoints. 
 const ctx3 = document.getElementById("myMixedChart")
 var myMixedChart = new Chart(ctx3, {
     type: 'bar',
