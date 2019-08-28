@@ -32,6 +32,7 @@ class Edit extends Component {
             text='Click "Close Button" to hide popup'
             closePopup={this.togglePopup}
             currentRow = {this.state.currentRow}
+    
 
            />
            : null

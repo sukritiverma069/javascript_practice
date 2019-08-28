@@ -1,14 +1,18 @@
 import React from 'react';
 import './styles1.css';
+
 //import { ReactComponent } from '*.svg';
 
 class Popup extends React.Component {
+
+  
+
   render() {
     return (
       <div className='popup'>
         <div className='popup_inner'>
           {/* <h1>{this.props.text}</h1> */}
-          <ProjectList currentRow = {this.props.currentRow} />
+          <Project currentRow = {this.props.currentRow}  />
         <button onClick={this.props.closePopup}>close me</button>
         </div>
       </div>
@@ -16,16 +20,44 @@ class Popup extends React.Component {
   }
 }
 
-class ProjectList extends React.Component {
+class Project extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      projectValues : this.props.currentRow
+    }
+
+    this.handleInputChange = this.handleInputChange.bind(this)
+  }
+
+  handleInputChange(event){
+   
+    let changedKey = event.target.name;
+    let changedValue = event.target.value;
+
+     console.log('key')
+     console.log(changedKey)
+     console.log('value')
+     console.log(changedValue)
+
+    this.setState( {
+      projectValues : {
+        ...this.state.projectValues,
+        changedKey : changedValue
+      }
+    } )
+    console.log(this.state.projectValues)
+     
+  }
 
   render() {
     return(
-      <div class = "list-container">
-        <ul class = "list_item">
+      <div className = "list-container">
+        <ul className = "list_item">
           {
             Object.keys(this.props.currentRow).map( (k) => {
               // return <li>  {k} --> {this.props.currentRow[k]} </li>
-              return <li> {k}  : <input type ="text" name={k} value ={this.props.currentRow[k]}></input> </li>
+              return <li key = {k}> {k}  : <input type ="text" name={k} value ={this.state.projectValues[k]} onChange = {this.handleInputChange} ></input> </li>
             } )
           }
           
