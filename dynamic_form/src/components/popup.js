@@ -39,24 +39,22 @@ class Project extends React.Component {
      console.log(changedKey)
      console.log('value')
      console.log(changedValue)
-
-    this.setState( {
-      projectValues : {
-        ...this.state.projectValues,
-        changedKey : changedValue
-      }
-    } )
-    console.log(this.state.projectValues)
      
+     let changedState =this.state.projectValues;  // creating copy of state variable
+     changedState[changedKey] =changedValue;                     
+     this.setState( {projectValues : changedState} )
+
+
+  
   }
 
   render() {
+    
     return(
       <div className = "list-container">
         <ul className = "list_item">
           {
             Object.keys(this.props.currentRow).map( (k) => {
-              // return <li>  {k} --> {this.props.currentRow[k]} </li>
               return <li key = {k}> {k}  : <input type ="text" name={k} value ={this.state.projectValues[k]} onChange = {this.handleInputChange} ></input> </li>
             } )
           }
