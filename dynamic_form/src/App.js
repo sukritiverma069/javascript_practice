@@ -11,7 +11,7 @@ class Main extends Component {
   render() {
     return (
       <div className="App">
-       <p className="Table-header">Basic Table</p>
+       <p className="Table-header">Project Details</p>
         {/* <Table1 data={fetchResult}/> */}
         <Table1/>
       </div>

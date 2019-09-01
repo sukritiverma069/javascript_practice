@@ -1,15 +1,9 @@
 .Table-header {
-    background-color: #ccc;
-    color: blue;
+    background-color: white;
+    color: rgb(83, 196, 196);
     padding: 10px;
-    text-align: left;
+    text-align: center;
+    font-size: 30px;
 }
- 
- 
-.GeorgeMichael-Row {
-    background-color: plum;
-}
- 
-.Other-Row {
-    background-color: greenyellow;
-}
+
+

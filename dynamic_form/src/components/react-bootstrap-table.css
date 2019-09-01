@@ -20,6 +20,8 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  padding: 30px;
+  border: 0.5px solid rgb(83, 196, 196);
   
 }
 
@@ -56,7 +58,7 @@
 
 .react-bs-table .table-bordered > thead > tr > th,
 .react-bs-table .table-bordered > thead > tr > td {
-  border-bottom-width: 2px;
+  border-bottom-width: px;
 }
 
 .react-bs-table .table-bordered > tbody > tr > td {

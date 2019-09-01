@@ -6,7 +6,7 @@ import './react-bootstrap-table.css';
 import {Edit} from './edit'
 
 let getEditComponent = function editButton(cell, row){
-  return <Edit rowData = {row}/>;
+  return <Edit rowData = {row} updateTableData = {(p) => this.updateTable(p)}/>;
 }
 
 class NameEditor extends React.Component {
@@ -70,19 +70,28 @@ class Table1 extends Component {
         };
 
         this.fetchResults();
+        this.updateTable = this.updateTable.bind(this);
       }
 
        fetchResults(){ 
-        fetch("http://localhost/static_data/db_response2.json")
+        fetch("http://localhost/project-details-backend/api/project/read.php")
         .then(response =>    response.json())
         .then( p => {
           //console.log( p.database_response);
-          this.setState({results : p.database_response}) ;
+          this.setState({results : p.records }) ;
           }).catch(error => {
             console.log(error);
         });
 
         }
+
+        //event handler for on click save event
+   updateTable(updatedData){
+    console.log('inside table update data');
+    console.log(updatedData);
+    this.setState({results : updatedData})
+    
+   }
         
 
 
@@ -100,22 +109,35 @@ class Table1 extends Component {
              console.log( this.state.results)
          } 
          
-        <BootstrapTable data={this.state.results} search = 'true' searchPlaceholder='type to filter projects' cellEdit={cellEdit} >
-          <TableHeaderColumn isKey dataField='projectid'>
-          projectid
+        <BootstrapTable data={this.state.results} search = 'true' searchPlaceholder='type to filter projects' cellEdit={cellEdit} pagination= 'true' >
+        <TableHeaderColumn dataField='edit' dataFormat={getEditComponent} editable={false} >
+          
+          </TableHeaderColumn> 
+          <TableHeaderColumn isKey dataField='projectId'>
+          Project Id
+          </TableHeaderColumn>
+          <TableHeaderColumn dataField='cityid' editable={false}>
+          Builder Id
+          </TableHeaderColumn>
+          <TableHeaderColumn dataField='localityid' customEditor={ { getElement: createNameEditor } }>
+          localityid
+          </TableHeaderColumn>
+          <TableHeaderColumn dataField='project_name' editable={false} >
+          project_name
           </TableHeaderColumn>
           <TableHeaderColumn dataField='builderid' editable={false}>
           builderid
           </TableHeaderColumn>
-          <TableHeaderColumn dataField='projectname' customEditor={ { getElement: createNameEditor } }>
-          projectname
+          <TableHeaderColumn dataField='builder_name' editable={false}>
+          builder_name
           </TableHeaderColumn>
-          <TableHeaderColumn dataField='buildername' editable={false} >
-          buildername
+          <TableHeaderColumn dataField='property_type' editable={false}>
+          Property Type
           </TableHeaderColumn>
-           <TableHeaderColumn dataField='edit' dataFormat={getEditComponent} editable={false}>
-          
-          </TableHeaderColumn> 
+          <TableHeaderColumn dataField='construction_status' editable={false}>
+          Construction Status
+          </TableHeaderColumn>
+           
         </BootstrapTable>
       </div>
     );

@@ -6,13 +6,14 @@ class Edit extends Component {
 
     constructor(props){
     super(props);
-    console.log('inside edit component constructor')
-    console.log(props.rowData);
+    
     this.state = { showPopup: false,
-      currentRow : props.rowData
+      
      };
 
      this.togglePopup = this.togglePopup.bind(this);
+     
+
     }
   //event handler for on click event of edit button
     togglePopup() {
@@ -20,6 +21,8 @@ class Edit extends Component {
        showPopup: !this.state.showPopup
      });
    }
+
+   
   
     render() {
       return (
@@ -31,9 +34,8 @@ class Edit extends Component {
            <Popup
             text='Click "Close Button" to hide popup'
             closePopup={this.togglePopup}
-            currentRow = {this.state.currentRow}
-    
-
+            currentRow = {this.props.rowData}
+            updateTable = {this.props.updateTableData}
            />
            : null
          }
