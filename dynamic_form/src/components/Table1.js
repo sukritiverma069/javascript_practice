@@ -4,10 +4,8 @@ import {BootstrapTable,
 import './Table.css';
 import './react-bootstrap-table.css';
 import {Edit} from './edit'
+import update from 'react-addons-update'; 
 
-let getEditComponent = function editButton(cell, row){
-  return <Edit rowData = {row} updateTableData = {(p) => this.updateTable(p)}/>;
-}
 
 class NameEditor extends React.Component {
   constructor(props) { 
@@ -66,11 +64,14 @@ class Table1 extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            results : []
+            results : [],
+            rowClickedIndex : -1
         };
 
         this.fetchResults();
-        this.updateTable = this.updateTable.bind(this);
+        
+         this.tableCallback = this.tableCallback.bind(this);
+         this.onRowClick = this.onRowClick.bind(this);
       }
 
        fetchResults(){ 
@@ -85,21 +86,33 @@ class Table1 extends Component {
 
         }
 
-        //event handler for on click save event
-   updateTable(updatedData){
-    console.log('inside table update data');
-    console.log(updatedData);
-    this.setState({results : updatedData})
-    
-   }
+        onRowClick(row,columnIndex,rowIndex) {
+          this.setState({rowClickedIndex:rowIndex})
+        }
+            
+
+        tableCallback(dataFromEdit){
+          console.log('inside table callback')
+          let newResults = [...this.state.results];
+          newResults[this.state.rowClickedIndex] = dataFromEdit
+          this.setState({results:newResults})
+      }
+          
         
 
-
-  render() {
+      
+                
+   render() {
     const cellEdit = {
       mode: 'click' // click cell to edit
     };
     const createNameEditor = (onUpdate, props) => (<NameEditor onUpdate={ onUpdate } {...props}/>);
+
+    const options = {
+      onRowClick: this.onRowClick
+    };
+
+  
 
     
 
@@ -109,8 +122,9 @@ class Table1 extends Component {
              console.log( this.state.results)
          } 
          
-        <BootstrapTable data={this.state.results} search = 'true' searchPlaceholder='type to filter projects' cellEdit={cellEdit} pagination= 'true' >
-        <TableHeaderColumn dataField='edit' dataFormat={getEditComponent} editable={false} >
+        <BootstrapTable data={this.state.results} search = 'true' searchPlaceholder='type to filter projects' cellEdit={cellEdit} pagination= 'true' options={ options }>
+        {/* <TableHeaderColumn dataField='edit' dataFormat={getEditComponent} editable={false} > */}
+        <TableHeaderColumn dataField='edit' dataFormat={ (cell, row) => <Edit rowData = {row}  callbackFromTable = {this.tableCallback }/>} editable={false} >
           
           </TableHeaderColumn> 
           <TableHeaderColumn isKey dataField='projectId'>

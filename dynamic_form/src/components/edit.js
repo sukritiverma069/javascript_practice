@@ -12,8 +12,15 @@ class Edit extends Component {
      };
 
      this.togglePopup = this.togglePopup.bind(this);
+     this.editCallback = this.editCallback.bind(this);
      
 
+    }
+
+    editCallback(datafromPopup){
+      console.log('inside edit callback')
+      console.log(datafromPopup)
+      this.props.callbackFromTable(datafromPopup)
     }
   //event handler for on click event of edit button
     togglePopup() {
@@ -35,7 +42,8 @@ class Edit extends Component {
             text='Click "Close Button" to hide popup'
             closePopup={this.togglePopup}
             currentRow = {this.props.rowData}
-            updateTable = {this.props.updateTableData}
+            
+            callbackFromEdit ={this.editCallback}
            />
            : null
          }

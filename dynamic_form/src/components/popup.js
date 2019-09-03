@@ -1,15 +1,24 @@
 import React from 'react';
 import './styles1.css';
 
+
 //import { ReactComponent } from '*.svg';
 
 class Popup extends React.Component {
  constructor(props){
    super(props);
+   
+this.popupCallback=this.popupCallback.bind(this)
+  }
+   
+   popupCallback(dataFromProject){
+     console.log("inside popup callback")
+     console.log(dataFromProject)
+     this.props.callbackFromEdit(dataFromProject)
+   }
 
    
-  
- }
+ 
 
  
 render() {
@@ -17,13 +26,15 @@ render() {
       <div className='popup'>
         <div className='popup_inner'>
           {/* <h1>{this.props.text}</h1> */}
-          <Project currentRow = {this.props.currentRow}  closePopup={this.props.closePopup} updateTable = {this.props.updateTable}/>
+          <Project currentRow = {this.props.currentRow}  closePopup={this.props.closePopup} callbackFromPopup = {this.popupCallback}/>
           
         </div>
       </div>
     );
   }
 }
+
+
 
 class Project extends React.Component {
   constructor(props){
@@ -34,9 +45,9 @@ class Project extends React.Component {
     }
 
     this.handleInputChange = this.handleInputChange.bind(this)
-  
+    this.somefunction = this.somefunction.bind(this)
     this.handleReset = this.handleReset.bind(this)
-    this.handleSave = this.handleSave.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleInputChange(event){
@@ -44,10 +55,6 @@ class Project extends React.Component {
     let changedKey = event.target.name;
     let changedValue = event.target.value;
 
-    console.log(this.state.projectValues)
-  console.log(JSON.stringify(this.state.projectValues));
-
-     
      //let changedState =this.state.projectValues;  // creating copy of state variable
      //changedState[changedKey] =changedValue;                     
      this.setState(prevState => ({
@@ -61,6 +68,14 @@ class Project extends React.Component {
   
   
   }
+
+  somefunction(event){
+    this.props.callbackFromPopup(this.state.projectValues)
+    this.handleSubmit()
+    this.props.closePopup()
+  }
+
+
   
 
   handleReset(event){
@@ -69,18 +84,28 @@ class Project extends React.Component {
     
   }
 
-  handleSave(event){
-    {this.props.updateTable(this.state.projectValues) }
-  }
+  
 
   handleSubmit(event){
-    event.preventdefault();
-    fetch('/',{
+    
+    fetch('http://localhost/project-details-backend/api/project/update.php',{
       method: 'post',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({editedData:this.state.projectValues})
+      body: JSON.stringify(this.state.projectValues)
     })
-  }
+    .then(function(response) {
+      if (!response.ok) {
+          throw Error(response.statusText);
+      }
+      return response;
+  }).then(function(response) {
+      //alert("the project was successfully updated")
+  }).catch(function(error) {
+      alert("Sorry, there was some error with the input, try again")
+
+  });
+}
+  
 
   
 
@@ -105,15 +130,19 @@ render() {
         
 
         <div className = "row">
-          <div className = "column">
-          <a href="#" onClick={this.handleSave} >Save</a>
-          </div>
+          {/* <div className = "column">
+          <a href="#" onClick={this.handleSubmit} >Submit</a>
+          </div> */}
           <div className = "column">
           <a href="#" onClick={this.handleReset} >Reset</a>
           </div>
           <div className = "column" >
+          <a href="#" onClick={this.somefunction} >Update</a>
+          </div>
+          <div className = "column" >
           <a href="#" onClick={this.props.closePopup} >Close</a>
           </div>
+          
         
          </div>
         
