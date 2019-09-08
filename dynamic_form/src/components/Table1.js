@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import {BootstrapTable, 
-       TableHeaderColumn} from 'react-bootstrap-table';
+       TableHeaderColumn, DeleteButton, InsertButton} from 'react-bootstrap-table';
 import './Table.css';
 import './react-bootstrap-table.css';
 import './react-bootstrap-table.min.css';
 import {Edit} from './edit'
-// import { BootstrapTable, TableHeaderColumn, InsertButton } from 'react-bootstrap-table'
+import Popup from './popup';
+
+
 
 
 
@@ -67,13 +69,19 @@ class Table1 extends Component {
         super(props);
         this.state = {
             results : [],
-            rowClickedIndex : -1
+            rowClickedIndex : -1,
+            selectedRow : {},
+            showCreatePopup : false,
+            updateType:"CREATE"
         };
 
         this.fetchResults();
-        
-         this.tableCallback = this.tableCallback.bind(this);
+        this.tableCallback = this.tableCallback.bind(this);
          this.onRowClick = this.onRowClick.bind(this);
+         this.handleDeleteButtonClick = this.handleDeleteButtonClick.bind(this);
+         this.handleInsertButtonClick = this.handleInsertButtonClick.bind(this);
+         this.handleRowSelect = this.handleRowSelect.bind(this);
+         this.toggleCreatePopup = this.toggleCreatePopup.bind(this);
       }
 
        fetchResults(){ 
@@ -91,6 +99,12 @@ class Table1 extends Component {
         onRowClick(row,columnIndex,rowIndex) {
           this.setState({rowClickedIndex:rowIndex})
         }
+
+        handleRowSelect(row, isSelected, e) {
+        this.setState({selectedRow:row})
+        }
+
+       
             
 
         tableCallback(dataFromEdit){
@@ -99,8 +113,73 @@ class Table1 extends Component {
           newResults[this.state.rowClickedIndex] = dataFromEdit
           this.setState({results:newResults})
       }
+
+      handleDeleteButtonClick = (onClick) => {
+       
+        fetch('http://localhost/project-details-backend/api/project/delete.php', {
+          method: 'post',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(this.state.selectedRow)
           
+        })
+        .then(res => res.text('detail has been logged')) // OR res.json()
+        .then(res => console.log('project has been deleted'))
+        console.log('This is my custom function for DeleteButton click event');
+        onClick();
+      }
+
+      createCustomDeleteButton = (onClick) => {
+        return (
+          <DeleteButton
+            btnText='Delete'
+            btnContextual='btn-warning'
+            className='my-custom-class'
+            btnGlyphicon='glyphicon-edit'
+            onClick={ () => this.handleDeleteButtonClick(onClick) }/>
+        );
+      }
+
+      handleInsertButtonClick = () => {
+        this.toggleCreatePopup();
         
+
+        console.log('inside handle insert')
+        
+        // fetch('http://localhost/project-details-backend/api/project/create.php', {
+        //   method: 'POST',
+        //   headers: {'Content-Type': 'application/json'},
+        //   body: JSON.stringify({"projectId": 1, 
+        //   "cityid": 7, 
+        //   "localityid": 7502, 
+        //   "project_name": "GE Unitech Grande", 
+        //   "builderid": 63911, 
+        //   "builder_name":"GE Construction" ,
+        //   "construction_status": "R",
+        //   "property_type": "R"})
+          
+        // })
+        // .then(res => res.text('detail has been logged')) // OR res.json()
+        // .then(res => console.log('project has been updated'))
+        console.log('This is my custom function for insertbutton click event');
+        // onClickEvent();
+      }
+
+      createCustomInsertButton = () => {
+        return (
+          <InsertButton
+            btnText='New'
+            btnContextual='btn-warning'
+            className='my-custom-class'
+            btnGlyphicon='glyphicon-plus'
+            onClick={ () => this.handleInsertButtonClick() }/>
+        );
+      }
+      
+      toggleCreatePopup() {
+        this.setState({
+          showCreatePopup: !this.state.showCreatePopup
+        });
+      }
 
       
                 
@@ -111,35 +190,49 @@ class Table1 extends Component {
     const createNameEditor = (onUpdate, props) => (<NameEditor onUpdate={ onUpdate } {...props}/>);
 
     const options = {
-      onRowClick: this.onRowClick
+      onRowClick: this.onRowClick,
+      deleteBtn: this.createCustomDeleteButton,
+      insertBtn: this.createCustomInsertButton
     };
 
     const selectRow = {
       mode: 'checkbox',  // multi select
-      clickToSelect: true
+      clickToSelect: true,
+      onSelect: this.handleRowSelect
     };
 
-    
+    let newProject = {"projectId": "", 
+        "cityid": "", 
+        "localityid": "", 
+        "project_name": "", 
+        "builderid": "", 
+        "builder_name":"" ,
+        "construction_status": "",
+        "property_type": ""}
 
     
 
     return (
       <div>
-         {
-             console.log( this.state.results)
-         } 
+      
         <link rel="stylesheet" href="https://npmcdn.com/react-bootstrap-table/dist/react-bootstrap-table.min.css"></link>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossOrigin="anonymous"></link>
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossOrigin="anonymous"></link>
 
 
-        <BootstrapTable class = 'table table-striped' data={this.state.results} selectRow={ selectRow } insertRow = {true} deleteRow={true} search = {true} searchPlaceholder='type to filter projects' cellEdit={cellEdit} pagination= {true} options={ options }>
+        <BootstrapTable class = 'table table-striped' keyField = 'ID' data={this.state.results} selectRow={ selectRow } insertRow = {true} deleteRow={true} search = {true} searchPlaceholder='type to filter projects' cellEdit={cellEdit} pagination= {true} options={ options }>
         {/* <TableHeaderColumn dataField='edit' dataFormat={getEditComponent} editable={false} > */}
+
+        {/* <TableHeaderColumn dataField='ID' isKey>
+          Id
+          </TableHeaderColumn> */}
+
+
         <TableHeaderColumn dataField='edit' dataFormat={ (cell, row) => <Edit rowData = {row}  callbackFromTable = {this.tableCallback }/>} editable={false} >
-          
           </TableHeaderColumn> 
-          <TableHeaderColumn isKey dataField='projectId'>
+          
+          <TableHeaderColumn dataField='projectId'>
           Project Id
           </TableHeaderColumn>
           <TableHeaderColumn dataField='cityid' editable={false}>
@@ -165,6 +258,19 @@ class Table1 extends Component {
           </TableHeaderColumn>
            
         </BootstrapTable>
+        {this.state.showCreatePopup ?
+          <Popup
+           text='Click "Close Button" to hide popup'
+           closePopup={this.toggleCreatePopup}
+           currentRow = {newProject}
+           //updatetype will either be update or create
+           updateType = {this.state.updateType}
+           callbackFromEdit ={this.tableCallback}
+          />
+          : null
+        }
+
+
       </div>
     );
   }

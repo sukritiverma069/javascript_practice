@@ -6,9 +6,8 @@ class Edit extends Component {
 
     constructor(props){
     super(props);
-    
     this.state = { showPopup: false,
-      
+        updateType : "UPDATE"  
      };
 
      this.togglePopup = this.togglePopup.bind(this);
@@ -32,17 +31,17 @@ class Edit extends Component {
    
   
     render() {
+    
       return (
         <div>
          {/* <h1> Simple Popup Example In React Application </h1> */}
          <button onClick={this.togglePopup}> Edit</button>
-  
          {this.state.showPopup ?
            <Popup
             text='Click "Close Button" to hide popup'
             closePopup={this.togglePopup}
             currentRow = {this.props.rowData}
-            
+            updateType = {this.state.updateType}
             callbackFromEdit ={this.editCallback}
            />
            : null
