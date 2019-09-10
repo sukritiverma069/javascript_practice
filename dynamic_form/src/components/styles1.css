@@ -20,10 +20,10 @@ body {
 
 .popup {
     position: fixed;
-    width: 120%;
-    height: 120%;
+    width: 140%;
+    height: 140%;
     top: 0;
-    left: 0;
+    left: -250px;
     right: 0;
     bottom: 0;
     margin: auto;
@@ -31,8 +31,8 @@ body {
   }
   .popup_inner {
     position: absolute;
-    left: 30%;
-    right: 35%;
+    left: 35%;
+    right: 30%;
     top: 25%;
     bottom: 25%;
     margin: auto;
@@ -41,20 +41,22 @@ body {
   }
 
   .list-container li {
-    padding: 10px;
+    padding: 2px;
+    margin-left: -70px
   
   }
 
   .list-container input {
     margin-right: 50px;
     float: right;
+    margin-right: 160px
     
   }
 
   .list_item {
     list-style-type: none;
-    padding: 20px;
-    margin-left:100px;
+    padding: 10px;
+    margin-left:90px;
   }
 
   
@@ -86,7 +88,13 @@ body {
     padding: 1px;
   }
   
-  
+  .invalid_data {
+    color: red;
+    margin-left: 335px;
+    font-size: 10px;
+    
+    
+  }
   
 
 

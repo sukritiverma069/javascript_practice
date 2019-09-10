@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles1.css';
+import validator from './validator'
 
 
 //import { ReactComponent } from '*.svg';
@@ -38,19 +39,27 @@ render() {
 
 
 
+
+
 class Project extends React.Component {
   constructor(props){
     super(props);
-    console.log("inside project constrcutor")
+    console.log("inside project constructor")
      console.log(this.props.currentRow)
     this.state = {
-      projectValues : this.props.currentRow      
+      projectValues : this.props.currentRow,
+    
+      
     }
+
+    
 
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleupdate = this.handleupdate.bind(this)
     this.handleReset = this.handleReset.bind(this)
     this.submit = this.submit.bind(this)
+    this.validate = this.validate.bind(this)
+    this.isValueValidNumber = this.isValueValidNumber.bind(this)
   }
 
   handleInputChange(event){
@@ -83,6 +92,36 @@ class Project extends React.Component {
     let original = this.props.currentRow
     this.setState({projectValues: original})
     
+  }
+
+  
+
+  validate(event){
+    var validData = true;
+
+    let key = event.target.name;
+    let value = event.target.value;
+    if(value.trim() == ""){
+      validData = false;
+    }else{
+      if(key.toLowerCase().endsWith("id")){
+        var isValidNumber = this.isValueValidNumber(value);
+        if(!isValidNumber){
+          validData = false;
+        }
+    }
+  }
+    return validData;
+  }
+
+  handleValidateString(event){
+   
+  }
+
+  isValueValidNumber(value){
+    return !isNaN(value);
+      
+      
   }
 
   
@@ -130,7 +169,10 @@ render() {
         <ul className = "list_item">
           {
             Object.keys(this.props.currentRow).map( (k) => {
-              return <li key = {k}> {k}  : <input type ="text" name={k} value ={this.state.projectValues[k]} onChange = {this.handleInputChange} ></input> </li>
+              return <li key = {k}> {k}  : <input type ="text" name={k} value ={this.state.projectValues[k]} onChange = {this.handleInputChange} onBlur = {this.validate} ></input> <p className = "invalid_data">Invalid data</p>
+             
+              </li>
+              
             } )
           }
           
