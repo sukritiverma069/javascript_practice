@@ -48,7 +48,7 @@ class Project extends React.Component {
      console.log(this.props.currentRow)
     this.state = {
       projectValues : this.props.currentRow,
-    
+      valid_data_obj : true
       
     }
 
