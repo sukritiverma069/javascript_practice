@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles1.css';
-import validator from './validator'
+
 
 
 //import { ReactComponent } from '*.svg';
@@ -44,12 +44,16 @@ render() {
 class Project extends React.Component {
   constructor(props){
     super(props);
+    
+
     console.log("inside project constructor")
-     console.log(this.props.currentRow)
+     
+     
+    
     this.state = {
       projectValues : this.props.currentRow,
-      valid_data_obj : true
-      
+      dataValidator : this.initializeValidator,
+      allValid : true
     }
 
     
@@ -60,6 +64,20 @@ class Project extends React.Component {
     this.submit = this.submit.bind(this)
     this.validate = this.validate.bind(this)
     this.isValueValidNumber = this.isValueValidNumber.bind(this)
+    this.isValueValidString = this.isValueValidString.bind(this)
+    this.completeDataValid = this.completeDataValid.bind(this)
+    
+  }
+
+  initializeValidator(){
+    let temp = {}
+    let allKeys = Object.keys(this.props.currentRow)
+
+    for(let i=0;i<allKeys.length;i++){
+     temp[allKeys[i]+"_valid"]=true;
+    }
+
+    return temp;
   }
 
   handleInputChange(event){
@@ -91,30 +109,61 @@ class Project extends React.Component {
   handleReset(event){
     let original = this.props.currentRow
     this.setState({projectValues: original})
+    this.setState({dataValidator: this.initializeValidator})
+
     
   }
 
-  
+  markFieldInvalid(fieldName){
+    this.setState(prevState => ({
+      dataValidator: {                   // object that we want to update
+    
+        ...prevState.dataValidator,    // keep all other key-value pairs
+          [fieldName+"_valid"]: false       // update the value of specific key
+      }
+      
+  }))
+  }
+
+  markFieldValid(fieldName){
+    this.setState(prevState => ({
+      dataValidator: {                   // object that we want to update
+          ...prevState.dataValidator,    // keep all other key-value pairs
+          [fieldName+"_valid"]: true       // update the value of specific key
+      }
+      
+  }))
+  }
+
+
 
   validate(event){
-    var validData = true;
-
-    let key = event.target.name;
-    let value = event.target.value;
+    console.log("current state is ")
+    console.log(this.state.dataValidator)
+    let key = event.target.name
+    let value = event.target.value
+    
     if(value.trim() == ""){
-      validData = false;
-    }else{
+     this.markFieldInvalid(key)
+
+    }else {
       if(key.toLowerCase().endsWith("id")){
         var isValidNumber = this.isValueValidNumber(value);
-        if(!isValidNumber){
-          validData = false;
-        }
+      if(!isValidNumber){
+          this.markFieldInvalid(key)
+      } else {
+           this.markFieldValid(key)  
+      }
+              
+    }else{
+      this.markFieldValid(key)
     }
-  }
-    return validData;
-  }
+    
+  } 
+  
+}
 
-  handleValidateString(event){
+  isValueValidString(event){
    
   }
 
@@ -123,22 +172,38 @@ class Project extends React.Component {
       
       
   }
+   completeDataValid(){
+
+     var allValid = true
+    var arr = Object.keys(this.state.dataValidator)
+     for(var i = 0; i<= arr.length-1; i++){
+       if(this.state.dataValidator[arr[i]] == false)  {
+          allValid = false
+          
+        }
+     }
+     this.setState({allValid: allValid})
+   }
 
   
   
 
   submit(event){
+
+    
+    
     let updateUrl = 'http://localhost/project-details-backend/api/project/update.php';
     let createUrl = 'http://localhost/project-details-backend/api/project/create.php';
     let url = this.props.updateType=="CREATE"? createUrl:updateUrl 
+    
+    
+   this.completeDataValid()
+   if(this.state.allValid){
     console.log("going to send data")
     console.log(JSON.stringify(this.state.projectValues))
-    
-
     fetch(url,{
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      mode:'cors',
       body: JSON.stringify(this.state.projectValues)
     })
     .then(function(response) {
@@ -155,6 +220,10 @@ class Project extends React.Component {
       console.log(error)
 
   });
+
+   }else
+
+    
   this.props.callbackFromPopup(this.state.projectValues)
     this.props.closePopup()
    
@@ -163,21 +232,31 @@ class Project extends React.Component {
 
 render() {
 
+  
+
+
     return(
+      
       <div className = "list-container">
 
         <ul className = "list_item">
           {
+            
             Object.keys(this.props.currentRow).map( (k) => {
-              return <li key = {k}> {k}  : <input type ="text" name={k} value ={this.state.projectValues[k]} onChange = {this.handleInputChange} onBlur = {this.validate} ></input> <p className = "invalid_data">Invalid data</p>
-             
+              
+              return <li key = {k}> {k}  : <input id = {k} type ="text" name={k}  onBlur = {this.validate} value ={this.state.projectValues[k]} onChange = {this.handleInputChange}></input> 
+              {this.state.dataValidator[k+"_valid"] == false ? <span class = "err" id ={k+"_error"} >Error</span> : null}
+              
+                
               </li>
+              
               
             } )
           }
-          
+          {this.state.allValid== true? null: <span class = "error" >Sorry there was some error, Try Again</span>}
  
         </ul>
+        
         
 
         <div className = "row">

@@ -82,6 +82,7 @@ class Table1 extends Component {
          this.handleInsertButtonClick = this.handleInsertButtonClick.bind(this);
          this.handleRowSelect = this.handleRowSelect.bind(this);
          this.toggleCreatePopup = this.toggleCreatePopup.bind(this);
+         this.initializeNewData = this.initializeNewData.bind(this)
       }
 
        fetchResults(){ 
@@ -145,23 +146,7 @@ class Table1 extends Component {
 
         console.log('inside handle insert')
         
-        // fetch('http://localhost/project-details-backend/api/project/create.php', {
-        //   method: 'POST',
-        //   headers: {'Content-Type': 'application/json'},
-        //   body: JSON.stringify({"projectId": 1, 
-        //   "cityid": 7, 
-        //   "localityid": 7502, 
-        //   "project_name": "GE Unitech Grande", 
-        //   "builderid": 63911, 
-        //   "builder_name":"GE Construction" ,
-        //   "construction_status": "R",
-        //   "property_type": "R"})
-          
-        // })
-        // .then(res => res.text('detail has been logged')) // OR res.json()
-        // .then(res => console.log('project has been updated'))
-        console.log('This is my custom function for insertbutton click event');
-        // onClickEvent();
+        
       }
 
       createCustomInsertButton = () => {
@@ -180,6 +165,21 @@ class Table1 extends Component {
           showCreatePopup: !this.state.showCreatePopup
         });
       }
+
+      initializeNewData(){
+        let temp = {}
+        let allKeys = Object.keys(this.state.results[0])
+
+        for(let i=0; i<allKeys.length; i++){
+          if(allKeys[i] != "ID"){
+            temp[allKeys[i]] = "";
+          }
+
+          }
+
+        return temp;
+      }
+      
 
       
                 
@@ -201,16 +201,8 @@ class Table1 extends Component {
       onSelect: this.handleRowSelect
     };
 
-    let newProject = {"projectId": "", 
-        "cityid": "", 
-        "localityid": "", 
-        "project_name": "", 
-        "builderid": "", 
-        "builder_name":"" ,
-        "construction_status": "",
-        "property_type": ""}
-
     
+
 
     return (
       <div>
@@ -229,6 +221,7 @@ class Table1 extends Component {
           </TableHeaderColumn> */}
 
 
+
         <TableHeaderColumn dataField='edit' dataFormat={ (cell, row) => <Edit rowData = {row}  callbackFromTable = {this.tableCallback }/>} editable={false} >
           </TableHeaderColumn> 
           
@@ -239,16 +232,16 @@ class Table1 extends Component {
           Builder Id
           </TableHeaderColumn>
           <TableHeaderColumn dataField='localityid' customEditor={ { getElement: createNameEditor } }>
-          localityid
+          Locality Id
           </TableHeaderColumn>
           <TableHeaderColumn dataField='project_name' editable={false} >
-          project_name
+          Project Name
           </TableHeaderColumn>
           <TableHeaderColumn dataField='builderid' editable={false}>
-          builderid
+          Builder Id
           </TableHeaderColumn>
           <TableHeaderColumn dataField='builder_name' editable={false}>
-          builder_name
+          Builder Name
           </TableHeaderColumn>
           <TableHeaderColumn dataField='property_type' editable={false}>
           Property Type
@@ -262,7 +255,7 @@ class Table1 extends Component {
           <Popup
            text='Click "Close Button" to hide popup'
            closePopup={this.toggleCreatePopup}
-           currentRow = {newProject}
+           currentRow = {this.initializeNewData()}
            //updatetype will either be update or create
            updateType = {this.state.updateType}
            callbackFromEdit ={this.tableCallback}
