@@ -17,7 +17,7 @@ this.popupCallback=this.popupCallback.bind(this)
      console.log("inside popup callback")
      console.log(dataFromProject)
      //props name 'callbackFromEdit' has to be made moe generic
-     this.props.callbackFromEdit(dataFromProject)
+     this.props.callbackFromEdit(dataFromProject)//function call
    }
 
    
@@ -53,7 +53,7 @@ class Project extends React.Component {
     this.state = {
       projectValues : this.props.currentRow,
       dataValidator : this.initializeValidator,
-      allValid : true
+      updateCalled: false
     }
 
     
@@ -64,7 +64,7 @@ class Project extends React.Component {
     this.submit = this.submit.bind(this)
     this.validate = this.validate.bind(this)
     this.isValueValidNumber = this.isValueValidNumber.bind(this)
-    this.isValueValidString = this.isValueValidString.bind(this)
+    //this.isValueValidString = this.isValueValidString.bind(this)
     this.completeDataValid = this.completeDataValid.bind(this)
     
   }
@@ -110,6 +110,7 @@ class Project extends React.Component {
     let original = this.props.currentRow
     this.setState({projectValues: original})
     this.setState({dataValidator: this.initializeValidator})
+    this.setState({updateCalled:false})
 
     
   }
@@ -138,18 +139,20 @@ class Project extends React.Component {
 
 
   validate(event){
-    console.log("current state is ")
-    console.log(this.state.dataValidator)
+    console.log("inside validate")
     let key = event.target.name
     let value = event.target.value
     
-    if(value.trim() == ""){
+    var alphanumeric_regex = /^[a-z0-9 ]+$/i
+
+    if(!alphanumeric_regex.test(value)){
      this.markFieldInvalid(key)
 
     }else {
       if(key.toLowerCase().endsWith("id")){
         var isValidNumber = this.isValueValidNumber(value);
       if(!isValidNumber){
+          console.log("inside markfieldInvalid")
           this.markFieldInvalid(key)
       } else {
            this.markFieldValid(key)  
@@ -163,9 +166,9 @@ class Project extends React.Component {
   
 }
 
-  isValueValidString(event){
+  // isValueValidString(event){
    
-  }
+  // }
 
   isValueValidNumber(value){
     return !isNaN(value);
@@ -173,32 +176,35 @@ class Project extends React.Component {
       
   }
    completeDataValid(){
-
-     var allValid = true
+    console.log("inside complete data valid")
+     var returnValue = true
     var arr = Object.keys(this.state.dataValidator)
      for(var i = 0; i<= arr.length-1; i++){
        if(this.state.dataValidator[arr[i]] == false)  {
-          allValid = false
+        returnValue = false
           
         }
      }
-     this.setState({allValid: allValid})
+     
+     return returnValue;
+     
    }
 
+   
   
   
 
   submit(event){
 
     
-    
+    this.setState({updateCalled:true})
     let updateUrl = 'http://localhost/project-details-backend/api/project/update.php';
     let createUrl = 'http://localhost/project-details-backend/api/project/create.php';
     let url = this.props.updateType=="CREATE"? createUrl:updateUrl 
     
     
-   this.completeDataValid()
-   if(this.state.allValid){
+   
+   if(this.completeDataValid()){
     console.log("going to send data")
     console.log(JSON.stringify(this.state.projectValues))
     fetch(url,{
@@ -221,12 +227,8 @@ class Project extends React.Component {
 
   });
 
-   }else
-
-    
-  this.props.callbackFromPopup(this.state.projectValues)
-    this.props.closePopup()
-   
+   }
+  
 }
   
 
@@ -238,7 +240,7 @@ render() {
     return(
       
       <div className = "list-container">
-
+      
         <ul className = "list_item">
           {
             
@@ -249,11 +251,16 @@ render() {
               
                 
               </li>
+
+              
               
               
             } )
+            
           }
-          {this.state.allValid== true? null: <span class = "error" >Sorry there was some error, Try Again</span>}
+
+          {this.completeDataValid() == true || !this.state.updateCalled ? null: <span class = "error" >Sorry there was some error, Try Again</span>}
+          
  
         </ul>
         

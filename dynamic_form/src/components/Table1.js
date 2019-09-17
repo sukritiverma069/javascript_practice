@@ -179,6 +179,18 @@ class Table1 extends Component {
 
         return temp;
       }
+
+      // hideFetchedId(){
+      //   let temp1 = {}
+
+      //   let allKeys = Object.keys(this.props.currentRow)
+      //   for(let i=0; i<allKeys.length; i++){
+      //     if(allKeys[i] != "ID"){
+      //       temp1[allKeys[i]] = this.props.currentRow;
+      //     }
+      //   }
+      //   return temp1;
+      // }
       
 
       

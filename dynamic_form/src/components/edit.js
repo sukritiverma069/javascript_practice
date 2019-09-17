@@ -12,6 +12,7 @@ class Edit extends Component {
 
      this.togglePopup = this.togglePopup.bind(this);
      this.editCallback = this.editCallback.bind(this);
+     this.deleteID = this.deleteID.bind(this)
      
 
     }
@@ -28,6 +29,18 @@ class Edit extends Component {
      });
    }
 
+   deleteID() {
+     let temp2 = {};
+
+     let allKeys = Object.keys(this.props.rowData)
+        for(let i=0; i<allKeys.length; i++){
+          if(allKeys[i] != "ID"){
+            temp2[allKeys[i]] = this.props.rowData[allKeys[i]];
+   }
+  }
+  return temp2;
+}
+
    
   
     render() {
@@ -40,9 +53,10 @@ class Edit extends Component {
            <Popup
             text='Click "Close Button" to hide popup'
             closePopup={this.togglePopup}
-            currentRow = {this.props.rowData}
+            currentRow = {this.deleteID()}
             updateType = {this.state.updateType}
             callbackFromEdit ={this.editCallback}
+            
            />
            : null
          }
