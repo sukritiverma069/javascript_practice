@@ -3,6 +3,7 @@ import './styles1.css';
 
 
 
+
 //import { ReactComponent } from '*.svg';
 
 class Popup extends React.Component {
