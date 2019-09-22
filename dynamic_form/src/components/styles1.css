@@ -21,7 +21,7 @@ body {
 .popup {
     position: fixed;
     width: 140%;
-    height: 200%;
+    height: 150%;
     top: 0;
     left: -250px;
     right: 0;
@@ -41,7 +41,7 @@ body {
   }
 
   .list-container li {
-    padding: 15px;
+    padding: 5px;
     margin-left: -70px
   
   }
@@ -55,7 +55,7 @@ body {
 
   .list_item {
     list-style-type: none;
-    padding: 10px;
+    padding: 5px;
     margin-left:90px;
   }
 

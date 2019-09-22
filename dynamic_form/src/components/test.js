@@ -64,40 +64,7 @@ class NameEditor extends React.Component {
   }
 }
 
-let temp_response=[
-  {
-      "ID": "16371",
-      "projectId": "10",
-      "cityid": "205",
-      "localityid": "4735",
-      "project_name": "DLF Plaza",
-      "builderid": "9",
-      "builder_name": "DLF Builders",
-      "property_type": "C",
-      "construction_status": "N"
-  },
-  {
-      "ID": "290",
-      "projectId": "100",
-      "cityid": "324",
-      "localityid": "8266",
-      "project_name": "Asian Paradise",
-      "builderid": "39",
-      "builder_name": "Asian Constructions",
-      "property_type": "R",
-      "construction_status": "R"
-  },
-  {
-      "ID": "16623",
-      "projectId": "100",
-      "cityid": "49",
-      "localityid": "1564",
-      "project_name": "Satved Complex",
-      "builderid": "1306",
-      "builder_name": "Sadhuram Sons",
-      "property_type": "C",
-      "construction_status": "R"
-  },]
+
 class Table1 extends Component {
 
     constructor(props) {
@@ -124,7 +91,7 @@ class Table1 extends Component {
       }
       
        fetchResults(){ 
-        fetch("http://localhost/project-details-backend/api/project/read.php")
+        fetch("http://localhost/project-details-backend/api/project/read_2.php?table=project_details")
         .then(response => response.json())
         .then( p => {
           console.log( 'inside fetchResults')
@@ -280,22 +247,28 @@ class Table1 extends Component {
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossOrigin="anonymous"></link>
 
-    {console.log("--------------------------")}   
+     
 
-    {console.log(Object.keys(temp_response[0]))}   
-
-        <BootstrapTable class = 'table table-striped'  keyField = 'ID' data={temp_response} selectRow={ selectRow } insertRow = {true} deleteRow={true} search = {true} searchPlaceholder='type to filter projects' cellEdit={cellEdit} pagination= {true} options={ options }>
+        <BootstrapTable class = 'table table-striped'  keyField = 'ID' data={this.state.results } selectRow={ selectRow } insertRow = {true} deleteRow={true} search = {true} searchPlaceholder='type to filter projects' cellEdit={cellEdit} pagination= {true} options={ options }>
 
           
           
       
-        <TableHeaderColumn dataField='edit' dataFormat={ (cell, row) => <Edit rowData = {row}  callbackFromTable = {this.tableCallback }/>} editable={false} >
-          </TableHeaderColumn>
-          <TableHeaderColumn dataField='dropdown' dataFormat={ (cell, row) => <Dropdown/>} editable={false}>
-            DropDown
-          </TableHeaderColumn> 
+        
           
-        {Object.keys(temp_response[0]).map((column) => <TableHeaderColumn dataField={column} editable={false} > {column} </TableHeaderColumn>)}  
+        {this.state.results.length > 0 ? Object.keys(this.state.results[0]).map((column) => {
+          { if( column != "edit" && column != "dropdown") {
+            return(<TableHeaderColumn dataField={column} editable={false} > {column} </TableHeaderColumn>)
+          }else if( column == "edit"){
+            return (<TableHeaderColumn dataField='edit' dataFormat={ (cell, row) => <Edit rowData = {row}  callbackFromTable = {this.tableCallback }/>} editable={false} ></TableHeaderColumn>)
+          }else if( column == "dropdown"){
+            return (<TableHeaderColumn dataField='dropdown' dataFormat={ (cell, row) => <Dropdown/>} editable={false}>
+            DropDown
+          </TableHeaderColumn>)
+          }
+          
+           
+        }}) : <div></div>}  
                      
         </BootstrapTable>
         {this.state.showCreatePopup ?

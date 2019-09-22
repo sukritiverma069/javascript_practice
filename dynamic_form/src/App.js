@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Table1 from './components/Table1';
+import Table1 from './components/test';
 import Table2 from './components/table2';
 
  
