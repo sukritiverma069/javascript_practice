@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import {BootstrapTable, 
        TableHeaderColumn, DeleteButton, InsertButton, SizePerPageDropDown} from 'react-bootstrap-table';
 import './Table.css';
-import './react-bootstrap-table.css';
-import './react-bootstrap-table.min.css';
+import './bootstrap.min.css';
+import './react-bootstrap-table-all.min.css';
 import {Edit} from './edit';
 import Popup from './popup';
 import {Dropdown} from './dropdown';
@@ -64,9 +64,8 @@ class NameEditor extends React.Component {
   }
 }
 
-class Table1 extends Component {
 
-  
+class Table1 extends Component {
 
     constructor(props) {
         super(props);
@@ -79,12 +78,6 @@ class Table1 extends Component {
             selectedOption: null
         };
 
-        const options = [
-          { value: 'chocolate', label: 'Chocolate' },
-          { value: 'strawberry', label: 'Strawberry' },
-          { value: 'vanilla', label: 'Vanilla' },
-        ];
-
         this.fetchResults();
         this.tableCallback = this.tableCallback.bind(this);
          this.onRowClick = this.onRowClick.bind(this);
@@ -96,12 +89,13 @@ class Table1 extends Component {
          this.handleChange = this.handleChange.bind(this)
          
       }
-
+      
        fetchResults(){ 
-        fetch("http://localhost/project-details-backend/api/project/read.php")
-        .then(response =>    response.json())
+        fetch("http://localhost/project-details-backend/api/project/read_2.php?table=project_details")
+        .then(response => response.json())
         .then( p => {
-          //console.log( p.database_response);
+          console.log( 'inside fetchResults')
+          console.log( p.records);
           this.setState({results : p.records }) ;
           }).catch(error => {
             console.log(error);
@@ -129,7 +123,7 @@ class Table1 extends Component {
 
       handleDeleteButtonClick = (onClick) => {
        
-        fetch('http://localhost/project-details-backend/api/project/delete.php', {
+        fetch('http://localhost/project-details-backend/api/project/delete.php?table=project_details', {
           method: 'post',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify(this.state.selectedRow)
@@ -148,7 +142,7 @@ class Table1 extends Component {
             btnContextual='btn-warning'
             className='my-custom-class'
             btnGlyphicon='glyphicon-edit'
-            onClick={ () => this.handleDeleteButtonClick(onClick) }/>
+            onClick={ () => this.handleDeleteButtonClick(onClick) } style = {{'margin-left': '-440px', 'border-left': '2px solid dark-orange'}}/>
         );
       }
 
@@ -168,7 +162,7 @@ class Table1 extends Component {
             btnContextual='btn-warning'
             className='my-custom-class'
             btnGlyphicon='glyphicon-plus'
-            onClick={ () => this.handleInsertButtonClick() }/>
+            onClick={ () => this.handleInsertButtonClick() } style = {{'margin-left': '-500px'}}/>
         );
       }
       
@@ -183,7 +177,7 @@ class Table1 extends Component {
         let allKeys = Object.keys(this.state.results[0])
 
         for(let i=0; i<allKeys.length; i++){
-          if(allKeys[i] != "ID"){
+          if(allKeys[i] != "ID" && allKeys[i] !== "edit" && allKeys[i] !== "dropdown" && allKeys[i] !== "inserted"){
             temp[allKeys[i]] = "";
           }
 
@@ -196,12 +190,12 @@ class Table1 extends Component {
 
       renderSizePerPageDropDown = props => {
         return (
-          <div className='btn-group'>
+          <div className='btn-group dropDown'>
             {
               [ 10, 25, 30 ].map((n, idx) => {
                 const isActive = (n === props.currSizePerPage) ? 'active' : null;
                 return (
-                  <button key={ idx } type='button' className={ `btn btn-info ${isActive}` } onClick={ () => props.changeSizePerPage(n) }>{ n }</button>
+                  <button key={ idx } type='button' className={ `btn btn-info ${isActive}` } onClick={ () => props.changeSizePerPage(n) }  >{ n }</button >
                 );
               })
             }
@@ -213,13 +207,7 @@ class Table1 extends Component {
         this.setState({ selectedOption });
         console.log(`Option selected:`, selectedOption);
       };
-
-      
-      
-      
-
-      
-                
+               
    render() {
     
     const { selectedOption } = this.state;
@@ -232,7 +220,7 @@ class Table1 extends Component {
       onRowClick: this.onRowClick,
       deleteBtn: this.createCustomDeleteButton,
       insertBtn: this.createCustomInsertButton,
-      sizePerPageDropDown: this.renderSizePerPageDropDown
+      SizePerPageDropDown: this.renderSizePerPageDropDown
     };
 
     const selectRow = {
@@ -241,57 +229,33 @@ class Table1 extends Component {
       onSelect: this.handleRowSelect
     };
 
-    
-
-    
-
-
     return (
       <div>
       
-        <link rel="stylesheet" href="https://npmcdn.com/react-bootstrap-table/dist/react-bootstrap-table.min.css"></link>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossOrigin="anonymous"></link>
+        {/* <link rel="stylesheet" href="https://npmcdn.com/react-bootstrap-table/dist/react-bootstrap-table.min.css"></link> */}
+        {/* <link rel="stylesheet" href="https://stackpath.blootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossOrigin="anonymous"></link> */}
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossOrigin="anonymous"></link>
+        {/* <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossOrigin="anonymous"></link> */}
 
-        
-    
-{console.log(this.state.results)}
+     
 
-        <BootstrapTable class = 'table table-striped'  keyField = 'ID' data={this.state.results} selectRow={ selectRow } insertRow = {true} deleteRow={true} search = {true} searchPlaceholder='type to filter projects' cellEdit={cellEdit} pagination= {true} options={ options }>
-        
-
-        <TableHeaderColumn dataField='edit' dataFormat={ (cell, row) => <Edit rowData = {row}  callbackFromTable = {this.tableCallback }/>} editable={false} >
-          </TableHeaderColumn>
-          <TableHeaderColumn dataField='dropdown' dataFormat={ (cell, row) => <Dropdown/>} editable={false}>
-            DropDown
-          </TableHeaderColumn> 
+        <BootstrapTable class = 'table table-striped' keyField = 'ID' data={this.state.results } selectRow={ selectRow } insertRow = {true} deleteRow={true} search = {true} searchPlaceholder='type to filter projects' cellEdit={cellEdit} pagination= {true} options={ options }>
+ 
+        {this.state.results.length > 0 ? Object.keys(this.state.results[0]).map((column) => {
           
-          <TableHeaderColumn dataField='projectId' editable = {false}>
-          Project Id
-          </TableHeaderColumn>
-          <TableHeaderColumn dataField='cityid' editable={false}>
-          Builder Id
-          </TableHeaderColumn>
-          <TableHeaderColumn dataField='localityid' >
-          Locality Id
-          </TableHeaderColumn>
-          <TableHeaderColumn dataField='project_name' editable={false} >
-          Project Name
-          </TableHeaderColumn>
-          <TableHeaderColumn dataField='builderid' editable={false}>
-          Builder Id
-          </TableHeaderColumn>
-          <TableHeaderColumn dataField='builder_name' editable={false}>
-          Builder Name
-          </TableHeaderColumn>
-          <TableHeaderColumn dataField='property_type' editable={false}>
-          Property Type
-          </TableHeaderColumn>
-          <TableHeaderColumn dataField='construction_status' editable={false}>
-          Construction Status
-          </TableHeaderColumn>
+          { if( column != "edit" && column != "dropdown" && column != "ID" && column != "inserted") {
+            return(<TableHeaderColumn  dataField={column}  editable={false} > {column} </TableHeaderColumn>)
+          }else if( column == "edit"){
+            return (<TableHeaderColumn dataField='edit' dataFormat={ (cell, row) => <Edit rowData = {row}  callbackFromTable = {this.tableCallback }/>} editable={false} ></TableHeaderColumn>)
+          }else if( column == "dropdown"){
+            return (<TableHeaderColumn dataField='dropdown' dataFormat={ (cell, row) => <Dropdown/>} editable={false}>
+            DropDown
+          </TableHeaderColumn>)
+          }
+          
            
+        }}) : <div></div>}  
+                     
         </BootstrapTable>
         {this.state.showCreatePopup ?
           <Popup

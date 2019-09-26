@@ -1,9 +1,15 @@
 .Table-header {
     background-color: white;
-    color: rgb(83, 196, 196);
+    color: rgb(83, 196, 181);
     padding: 10px;
     text-align: center;
     font-size: 30px;
 }
+
+.btn-info {
+    margin-left: 500px;
+}
+
+
 
 

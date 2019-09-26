@@ -27,7 +27,8 @@ th.react-bs-table-expand-cell>div {
 }
 
 .react-bs-table-pagination {
-	margin-top: 10px
+	margin-top: 10px;
+	color: yellow;
 }
 
 .react-bs-table-tool-bar {

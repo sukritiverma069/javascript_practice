@@ -65,8 +65,8 @@ class Project extends React.Component {
     this.submit = this.submit.bind(this)
     this.validate = this.validate.bind(this)
     this.isValueValidNumber = this.isValueValidNumber.bind(this)
-    //this.isValueValidString = this.isValueValidString.bind(this)
     this.completeDataValid = this.completeDataValid.bind(this)
+    
     
   }
 
@@ -103,9 +103,13 @@ class Project extends React.Component {
   handleupdate(event){
     console.log("inside handle updated")
     this.submit()
+    
+    
     // this.props.callbackFromPopup(this.state.projectValues)
     // this.props.closePopup()
   }
+
+  
 
   handleReset(event){
     let original = this.props.currentRow
@@ -167,9 +171,6 @@ class Project extends React.Component {
   
 }
 
-  // isValueValidString(event){
-   
-  // }
 
   isValueValidNumber(value){
     return !isNaN(value);
@@ -182,7 +183,8 @@ class Project extends React.Component {
     var arr = Object.keys(this.state.dataValidator)
      for(var i = 0; i<= arr.length-1; i++){
        if(this.state.dataValidator[arr[i]] == false)  {
-        returnValue = false
+        returnValue = false;
+        break;
           
         }
      }
@@ -190,6 +192,25 @@ class Project extends React.Component {
      return returnValue;
      
    }
+
+   isDataEmpty(){
+     var returnValue = true;
+     
+     var allKeys = Object.keys(this.state.projectValues)
+     for(var i=0; i<allKeys.length; i++){
+       
+      if(this.state.projectValues[allKeys[i]] != ""){  
+        
+        returnValue = false
+        break
+      }
+     }
+   
+       return returnValue
+
+   }
+
+   
 
    
   
@@ -199,13 +220,13 @@ class Project extends React.Component {
 
     
     this.setState({updateCalled:true})
-    let updateUrl = 'http://localhost/project-details-backend/api/project/update.php';
-    let createUrl = 'http://localhost/project-details-backend/api/project/create.php';
+    let updateUrl = 'http://localhost/project-details-backend/api/project/update_2.php?table=project_details';
+    let createUrl = 'http://localhost/project-details-backend/api/project/create_2.php?table=project_details';
     let url = this.props.updateType=="CREATE"? createUrl:updateUrl 
     
     
    
-   if(this.completeDataValid()){
+   if(this.completeDataValid() && !this.isDataEmpty()){
     console.log("going to send data")
     console.log(JSON.stringify(this.state.projectValues))
     fetch(url,{
@@ -243,7 +264,7 @@ render() {
       <div className = "list-container">
       
         <ul className = "list_item">
-          {
+          { 
             
             Object.keys(this.props.currentRow).map( (k) => {
               
@@ -259,8 +280,9 @@ render() {
             } )
             
           }
-
-          {this.completeDataValid() == true || !this.state.updateCalled ? null: <span class = "error" >Sorry there was some error, Try Again</span>}
+          
+          {/* {this.completeDataValid() == false && this.state.updateCalled ? <div class = "error" >Some fields are invalid, Try Again</div> : null} */}
+          {this.isDataEmpty() == true && this.state.updateCalled ? <div class = "err">Please enter some values</div>: this.completeDataValid() == false && this.state.updateCalled ? <div class = "error" >Some fields are invalid, Try Again</div> : null}
           
  
         </ul>

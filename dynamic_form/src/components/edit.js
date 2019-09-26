@@ -34,7 +34,7 @@ class Edit extends Component {
 
      let allKeys = Object.keys(this.props.rowData)
         for(let i=0; i<allKeys.length; i++){
-          if(allKeys[i] != "ID" && allKeys[i] !== "edit" && allKeys[i] !== "dropdown"){
+          if(allKeys[i] != "ID" && allKeys[i] !== "edit" && allKeys[i] !== "dropdown" && allKeys[i] !== "inserted"){
             temp2[allKeys[i]] = this.props.rowData[allKeys[i]];
    }
   }

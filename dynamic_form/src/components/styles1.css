@@ -20,8 +20,9 @@ body {
 
 .popup {
     position: fixed;
+    
     width: 140%;
-    height: 150%;
+    height: 180%;
     top: 0;
     left: -250px;
     right: 0;
@@ -31,6 +32,7 @@ body {
   }
   .popup_inner {
     position: absolute;
+    overflow-y: scroll;
     left: 35%;
     right: 30%;
     top: 25%;
@@ -40,9 +42,12 @@ body {
     background: white;
   }
 
+  
+
   .list-container li {
     padding: 5px;
-    margin-left: -70px
+    margin-left: -70px;
+    
   
   }
 
@@ -65,7 +70,7 @@ body {
   a:visited {
       color: rgb(83, 196, 196);
       text-decoration: none;
-      margin-top: 200px;
+      margin-top: 5px;
       font-size: 15px;
       margin-left: 100px;
 
@@ -76,6 +81,7 @@ body {
   a, a:hover,
   a:active {
       color:  rgb(49, 131, 131);
+      
   } 
 
   
@@ -99,6 +105,11 @@ body {
 .err {
   color: red;
   display: block
+}
+
+.error {
+  color: red;
+  display: block;
 }
 
 
