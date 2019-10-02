@@ -9,9 +9,9 @@ import './styles1.css';
 class Popup extends React.Component {
  constructor(props){
    super(props);
-   
-   
+  
 this.popupCallback=this.popupCallback.bind(this)
+
   }
    
    popupCallback(dataFromProject){
@@ -21,16 +21,16 @@ this.popupCallback=this.popupCallback.bind(this)
      this.props.callbackFromEdit(dataFromProject)//function call
    }
 
-   
- 
-
  
 render() {
+    var arrKeys = Object.keys(this.props.currentRow)
+  
     return (
-      <div className='popup'>
-        <div className='popup_inner'>
+      <div className = {arrKeys.length<=8? 'popup': 'popup_2'}>
+        
+        <div className = {arrKeys.length<=8? 'popup_inner': 'popup_inner_2'}>
           {/* <h1>{this.props.text}</h1> */}
-          <Project currentRow = {this.props.currentRow}  closePopup={this.props.closePopup} callbackFromPopup = {this.popupCallback} updateType = {this.props.updateType}/>
+          <Project currentRow = {this.props.currentRow}  closePopup={this.props.closePopup} callbackFromPopup = {this.popupCallback} updateType = {this.props.updateType} />
           
         </div>
       </div>
@@ -54,7 +54,8 @@ class Project extends React.Component {
     this.state = {
       projectValues : this.props.currentRow,
       dataValidator : this.initializeValidator,
-      updateCalled: false
+      updateCalled: false,
+      arrKeys: Object.keys(this.props.currentRow)
     }
 
     
@@ -211,11 +212,6 @@ class Project extends React.Component {
    }
 
    
-
-   
-  
-  
-
   submit(event){
 
     
@@ -256,17 +252,16 @@ class Project extends React.Component {
 
 render() {
 
+   var arrKeys= Object.keys(this.props.currentRow)
   
-
-
-    return(
+  return(
       
-      <div className = "list-container">
-      
-        <ul className = "list_item">
+      <div className = {arrKeys.length<=8? 'list-container': 'list-container_2'}>
+      {console.log("the number of keys is" + arrKeys.length)}
+        <ul className = {arrKeys.length<=8? 'list_item': 'list_item_2'}>
           { 
             
-            Object.keys(this.props.currentRow).map( (k) => {
+            arrKeys.map( (k) => {
               
               return <li key = {k}> {k}  : <input id = {k} type ="text" name={k}  onBlur = {this.validate} value ={this.state.projectValues[k]} onChange = {this.handleInputChange}></input> 
               {this.state.dataValidator[k+"_valid"] == false ? <span class = "err" id ={k+"_error"} >Error</span> : null}

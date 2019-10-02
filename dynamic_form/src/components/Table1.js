@@ -89,9 +89,10 @@ class Table1 extends Component {
          this.handleChange = this.handleChange.bind(this)
          
       }
-      
+     
        fetchResults(){ 
-        fetch("http://localhost/project-details-backend/api/project/read_2.php?table=project_details")
+         
+        fetch("http://localhost/project-details-backend/api/project/read_2.php?table=xid_summary")
         .then(response => response.json())
         .then( p => {
           console.log( 'inside fetchResults')

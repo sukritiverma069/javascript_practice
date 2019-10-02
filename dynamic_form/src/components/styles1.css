@@ -30,7 +30,32 @@ body {
     margin: auto;
     background-color: rgba(0,0,0, 0.5);
   }
+
+  .popup_2{
+    position: fixed;
+    
+    width: 140%;
+    height: 200%;
+    top: 0;
+    left: -250px;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: rgba(0,0,0, 0.5);
+  }
   .popup_inner {
+    position: absolute;
+    overflow-y: scroll;
+    left: 35%;
+    right: 30%;
+    top: 25%;
+    bottom: 25%;
+    margin: auto;
+    border-radius: 20px;
+    background: white;
+  }
+
+  .popup_inner_2 {
     position: absolute;
     overflow-y: scroll;
     left: 35%;
@@ -51,6 +76,12 @@ body {
   
   }
 
+  .list-container_2 li {
+    padding: 5px;
+    margin-left: -70px;
+    
+  }
+
   .list-container input {
     margin-right: 50px;
     float: right;
@@ -58,9 +89,21 @@ body {
     
   }
 
+  .list-container_2 input {
+    float: right;
+  }
+
+  
+
   .list_item {
     list-style-type: none;
     padding: 5px;
+    margin-left:90px;
+  }
+
+  .list_item_2 {
+    list-style-type: none;
+    padding:2px;
     margin-left:90px;
   }
 

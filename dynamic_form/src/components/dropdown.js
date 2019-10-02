@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import MDBSelect  from "./mdbreact";
+
 
 class Dropdown extends Component {
 
@@ -12,7 +12,7 @@ class Dropdown extends Component {
               
             return (
               <div>
-                <select>
+                <select name = "options" >
                     <option>SELECT</option>
                     <option value="1">Option 1</option>
                     <option value="2">Option 2</option>
