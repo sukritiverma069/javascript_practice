@@ -7,6 +7,7 @@ import './react-bootstrap-table-all.min.css';
 import {Edit} from './edit';
 import Popup from './popup';
 import {Dropdown} from './dropdown';
+import MultiDropdown from './multiselectDropdown';
 
 
 
@@ -92,7 +93,7 @@ class Table1 extends Component {
      
        fetchResults(){ 
          
-        fetch("http://localhost/project-details-backend/api/project/read_2.php?table=xid_summary")
+        fetch("http://localhost/project-details-backend/api/project/read_2.php?table=project_details")
         .then(response => response.json())
         .then( p => {
           console.log( 'inside fetchResults')
@@ -249,7 +250,7 @@ class Table1 extends Component {
           }else if( column == "edit"){
             return (<TableHeaderColumn dataField='edit' dataFormat={ (cell, row) => <Edit rowData = {row}  callbackFromTable = {this.tableCallback }/>} editable={false} ></TableHeaderColumn>)
           }else if( column == "dropdown"){
-            return (<TableHeaderColumn dataField='dropdown' dataFormat={ (cell, row) => <Dropdown/>} editable={false}>
+            return (<TableHeaderColumn dataField='dropdown' dataFormat={ (cell, row) => <MultiDropdown/>} editable={false}>
             DropDown
           </TableHeaderColumn>)
           }
