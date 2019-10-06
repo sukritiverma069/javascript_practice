@@ -87,7 +87,8 @@ class Table1 extends Component {
          this.handleRowSelect = this.handleRowSelect.bind(this);
          this.toggleCreatePopup = this.toggleCreatePopup.bind(this);
          this.initializeNewData = this.initializeNewData.bind(this);
-         this.handleChange = this.handleChange.bind(this)
+         this.handleChange = this.handleChange.bind(this);
+         this.callBackFromMultiDropdown2 = this.callBackFromMultiDropdown2.bind(this);
          
       }
      
@@ -112,6 +113,12 @@ class Table1 extends Component {
         handleRowSelect(row, isSelected, e) {
         this.setState({selectedRow:row})
         }
+
+        callBackFromMultiDropdown2(dataFromMultiDropdown){
+          console.log("inside callBackFromMultiDropdown ")
+         console.log(dataFromMultiDropdown)
+     
+       }
 
        
             
@@ -179,7 +186,7 @@ class Table1 extends Component {
         let allKeys = Object.keys(this.state.results[0])
 
         for(let i=0; i<allKeys.length; i++){
-          if(allKeys[i] != "ID" && allKeys[i] !== "edit" && allKeys[i] !== "dropdown" && allKeys[i] !== "inserted"){
+          if(allKeys[i] != "ID" && allKeys[i] !== "edit" && allKeys[i] !== "inserted" && allKeys[i] !== "inserted"){
             temp[allKeys[i]] = "";
           }
 
@@ -234,24 +241,20 @@ class Table1 extends Component {
     return (
       <div>
       
-        {/* <link rel="stylesheet" href="https://npmcdn.com/react-bootstrap-table/dist/react-bootstrap-table.min.css"></link> */}
-        {/* <link rel="stylesheet" href="https://stackpath.blootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossOrigin="anonymous"></link> */}
-
-        {/* <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossOrigin="anonymous"></link> */}
-
-     
+       
 
         <BootstrapTable class = 'table table-striped' keyField = 'ID' data={this.state.results } selectRow={ selectRow } insertRow = {true} deleteRow={true} search = {true} searchPlaceholder='type to filter projects' cellEdit={cellEdit} pagination= {true} options={ options }>
  
         {this.state.results.length > 0 ? Object.keys(this.state.results[0]).map((column) => {
           
-          { if( column != "edit" && column != "dropdown" && column != "ID" && column != "inserted") {
+          { if( column != "edit" && column != "construction_status" && column != "ID" && column != "inserted" && column != "dropdown") {
             return(<TableHeaderColumn  dataField={column}  editable={false} > {column} </TableHeaderColumn>)
           }else if( column == "edit"){
-            return (<TableHeaderColumn dataField='edit' dataFormat={ (cell, row) => <Edit rowData = {row}  callbackFromTable = {this.tableCallback }/>} editable={false} ></TableHeaderColumn>)
-          }else if( column == "dropdown"){
-            return (<TableHeaderColumn dataField='dropdown' dataFormat={ (cell, row) => <MultiDropdown/>} editable={false}>
-            DropDown
+            return (<TableHeaderColumn dataField='edit' dataFormat={ (cell, row) => <Edit rowData = {row} callbackFromTable = {this.tableCallback }/>} editable={false} ></TableHeaderColumn>)
+          }else if( column == "construction_status"){
+            return (<TableHeaderColumn dataField='construction_status' dataFormat={ (cell, row) => <MultiDropdown checkedValues = {row.construction_status.split(",")} multiSelectCallback = {this.callBackFromMultiDropdown2}/>}  editable={false}>
+            construction_status
+            
           </TableHeaderColumn>)
           }
           

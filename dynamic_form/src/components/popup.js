@@ -1,10 +1,7 @@
 import React from 'react';
 import './styles1.css';
+import MultiDropdown from './multiselectDropdown';
 
-
-
-
-//import { ReactComponent } from '*.svg';
 
 class Popup extends React.Component {
  constructor(props){
@@ -26,9 +23,9 @@ render() {
     var arrKeys = Object.keys(this.props.currentRow)
   
     return (
-      <div className = {arrKeys.length<=8? 'popup': 'popup_2'}>
+      <div className = {arrKeys.length<=9? 'popup': 'popup_2'}>
         
-        <div className = {arrKeys.length<=8? 'popup_inner': 'popup_inner_2'}>
+        <div className = {arrKeys.length<=9? 'popup_inner': 'popup_inner_2'}>
           {/* <h1>{this.props.text}</h1> */}
           <Project currentRow = {this.props.currentRow}  closePopup={this.props.closePopup} callbackFromPopup = {this.popupCallback} updateType = {this.props.updateType} />
           
@@ -67,8 +64,15 @@ class Project extends React.Component {
     this.validate = this.validate.bind(this)
     this.isValueValidNumber = this.isValueValidNumber.bind(this)
     this.completeDataValid = this.completeDataValid.bind(this)
+    this.callBackFromMultiDropdown = this.callBackFromMultiDropdown.bind(this)
     
     
+  }
+
+  callBackFromMultiDropdown(dataFromMultiDropdown){
+     console.log("inside callBackFromMultiDropdown ")
+    console.log(dataFromMultiDropdown)
+
   }
 
   initializeValidator(){
@@ -212,6 +216,8 @@ class Project extends React.Component {
    }
 
    
+
+   
   submit(event){
 
     
@@ -253,21 +259,29 @@ class Project extends React.Component {
 render() {
 
    var arrKeys= Object.keys(this.props.currentRow)
-  
+   
   return(
       
-      <div className = {arrKeys.length<=8? 'list-container': 'list-container_2'}>
+      <div className = {arrKeys.length<=9? 'list-container': 'list-container_2'}>
       {console.log("the number of keys is" + arrKeys.length)}
-        <ul className = {arrKeys.length<=8? 'list_item': 'list_item_2'}>
+        <ul className = {arrKeys.length<=9? 'list_item': 'list_item_2'}>
           { 
             
             arrKeys.map( (k) => {
               
-              return <li key = {k}> {k}  : <input id = {k} type ="text" name={k}  onBlur = {this.validate} value ={this.state.projectValues[k]} onChange = {this.handleInputChange}></input> 
-              {this.state.dataValidator[k+"_valid"] == false ? <span class = "err" id ={k+"_error"} >Error</span> : null}
-              
+              return (
+                <table className = "popup-table" >
+                  {k == "construction_status" ? <tr> <td> {k}</td>   <td><MultiDropdown multiSelectCallback = {this.callBackFromMultiDropdown} checkedValues = {this.state.projectValues["construction_status"].split(",")}/></td> 
+                  
+                  
+                {this.state.dataValidator[k+"_valid"] == false ? <span class = "err" id ={k+"_error"} >Error</span> : null}
+                </tr> : <tr> <td > {k}</td>   <td> <input id = {k} type ="text" name={k}  onBlur = {this.validate} value ={this.state.projectValues[k]} onChange = {this.handleInputChange}></input> </td>
+                {this.state.dataValidator[k+"_valid"] == false ? <span class = "err" id ={k+"_error"} >Error</span> : null}
+                </tr>}
+                </table>
+              )
                 
-              </li>
+               
 
               
               

@@ -5,10 +5,12 @@ import './multiSelectDrop.css';
 export class Multiselect extends Component {
     constructor(props) {
         super(props);
+        console.log("inside multiselect")
+        console.log(this.props.preChecked)
         this.state ={
-            checked: [],
-            dropDownValue: []
-          }
+            dropDownValue: [],
+            checked: this.props.preChecked
+            }
           this.checkBox = this.checkBox.bind(this);
     }
     componentWillMount() {

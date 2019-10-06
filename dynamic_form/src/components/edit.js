@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 import Popup from './popup';
+import MultiDropdown from './multiselectDropdown'
 
 class Edit extends Component {
 
@@ -34,9 +35,14 @@ class Edit extends Component {
 
      let allKeys = Object.keys(this.props.rowData)
         for(let i=0; i<allKeys.length; i++){
-          if(allKeys[i] != "ID" && allKeys[i] !== "edit" && allKeys[i] !== "dropdown" && allKeys[i] !== "inserted"){
+          
+          if(allKeys[i] != "ID" && allKeys[i] != "edit" && allKeys[i] != "dropdown" &&  allKeys[i] != "inserted"){
             temp2[allKeys[i]] = this.props.rowData[allKeys[i]];
-   }
+            
+         }
+         
+
+   
   }
   return temp2;
 }
@@ -56,6 +62,7 @@ class Edit extends Component {
             currentRow = {this.deleteID()}
             updateType = {this.state.updateType}
             callbackFromEdit ={this.editCallback}
+            
             
            />
            : null
