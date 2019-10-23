@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import Popup from './popup';
-import MultiDropdown from './multiselectDropdown'
+
 
 class Edit extends Component {
 
@@ -13,7 +13,7 @@ class Edit extends Component {
 
      this.togglePopup = this.togglePopup.bind(this);
      this.editCallback = this.editCallback.bind(this);
-     this.deleteID = this.deleteID.bind(this)
+
      
 
     }
@@ -30,22 +30,7 @@ class Edit extends Component {
      });
    }
 
-   deleteID() {
-     let temp2 = {};
-
-     let allKeys = Object.keys(this.props.rowData)
-        for(let i=0; i<allKeys.length; i++){
-          
-          if(allKeys[i] != "ID" && allKeys[i] != "edit" && allKeys[i] != "dropdown" &&  allKeys[i] != "inserted"){
-            temp2[allKeys[i]] = this.props.rowData[allKeys[i]];
-            
-         }
-         
-
    
-  }
-  return temp2;
-}
 
    
   
@@ -59,7 +44,7 @@ class Edit extends Component {
            <Popup
             text='Click "Close Button" to hide popup'
             closePopup={this.togglePopup}
-            currentRow = {this.deleteID()}
+            currentRow = {this.props.rowData}
             updateType = {this.state.updateType}
             callbackFromEdit ={this.editCallback}
             

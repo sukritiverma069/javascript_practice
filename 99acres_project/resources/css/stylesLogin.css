@@ -1,0 +1,177 @@
+* {
+    margin:0;
+    padding:0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+html,
+body {
+    background-image: linear-gradient(rgba(252, 247, 247, 0.541), rgba(209, 204, 204, 0.986)),url("images/pexels-photo-374870\ \(1\).jpeg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: rgb(141, 138, 138);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    font-size:14px;
+    text-rendering: optimizeLegibility;
+}
+
+
+
+
+
+/*---------------------FORM------------------*/
+
+.form {
+    background: linear-gradient(to bottom right, rgb(45, 78, 141), rgba(204, 90, 204, 0.932));
+    width: 30%;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 5px;
+    -webkit-box-shadow: 0 2px 2px rgb(231, 231, 231);
+            box-shadow: 0 2px 2px rgb(231, 231, 231);
+
+}
+
+.form div {
+    padding: 20px;
+    
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(180, 179, 179);
+    opacity: 1; /* Firefox */
+  }
+
+/*---------------------BUTTON------------------*/
+
+
+.btn {
+    margin-left: 100px;
+    
+}
+
+
+.btn:link,
+.btn:visited {
+    padding: 10px 20px;
+    font-weight: 300;
+    text-decoration: none;
+    border-radius: 50px;
+    -webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+    
+   
+}
+
+.btn:link,
+.btn:visited {
+    background-color: rgb(214, 213, 213);
+    color:gray;
+    
+    
+}
+
+.btn:hover,
+.btn-active,
+input[type=submit]:hover,
+input[type=submit]:active {
+    background-color: rgb(148, 145, 145);
+
+}
+
+/*---------------------FORM------------------*/
+input[type=text],
+input[type=password],
+input[type=email]
+
+ {
+    color: white;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid white;
+    margin-top: 6px;
+    background: transparent;
+}
+
+input[type=checkbox] {
+    margin: 10px 5px 10px 0;
+    zoom: 1.5;
+    background-color: white;
+    vertical-align: middle;
+    
+}
+
+label{
+    font-size:12px;
+    margin-top: 15px;
+    margin-left: -5px;
+    color: rgb(180, 179, 179);
+    vertical-align: middle;
+  }
+
+
+.forgot-password {
+    margin-top: 15px;
+    float: right;
+    color: rgb(180, 179, 179);
+}
+ 
+.header{
+    text-align: center;
+    font-size: 300%;
+    color: rgb(180, 179, 179);
+}
+
+ .header p {
+     display: inline-block;
+ }
+
+
+ .header h1 {
+     padding-top: 20px;
+     font-size: 60%;
+ }
+
+ footer {
+   text-align: center;
+ }
+ 
+ .sign-up {
+     vertical-align: -70px;
+     display: inline-block;
+     color: rgb(180, 179, 179);
+     text-decoration: none;
+     
+}
+
+.sign-up:hover,
+.sign-up:active {
+    display: inline-block;
+    padding: 10px 20px;
+    font-weight: 300;
+    text-decoration: underline;
+    border-radius: 5px;
+    -webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+    
+   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

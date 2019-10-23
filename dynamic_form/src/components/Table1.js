@@ -6,7 +6,6 @@ import './bootstrap.min.css';
 import './react-bootstrap-table-all.min.css';
 import {Edit} from './edit';
 import Popup from './popup';
-import {Dropdown} from './dropdown';
 import MultiDropdown from './multiselectDropdown';
 
 
@@ -94,16 +93,17 @@ class Table1 extends Component {
      
        fetchResults(){ 
          
-        fetch("http://localhost/project-details-backend/api/project/read_2.php?table=project_details")
-        .then(response => response.json())
-        .then( p => {
-          console.log( 'inside fetchResults')
-          console.log( p.records);
-          this.setState({results : p.records }) ;
+        fetch("http://localhost/project-details-backend/api/project/read_2.php?table=xid_summary")
+        .then(promise => promise.json())
+       
+        .then( actualResponse => {
+          console.log( 'inside fetchResults')          
+          console.log( actualResponse.records);
+          this.setState({results : actualResponse.records }) ;
           }).catch(error => {
             console.log(error);
         });
-
+        
         }
 
         onRowClick(row,columnIndex,rowIndex) {
@@ -151,7 +151,7 @@ class Table1 extends Component {
             btnContextual='btn-warning'
             className='my-custom-class'
             btnGlyphicon='glyphicon-edit'
-            onClick={ () => this.handleDeleteButtonClick(onClick) } style = {{'margin-left': '-440px', 'border-left': '2px solid dark-orange'}}/>
+            onClick={ () => this.handleDeleteButtonClick(onClick) } style = {{'margin-left': '-500px', 'border-left': '2px solid dark-orange'}}/>
         );
       }
 
@@ -171,7 +171,7 @@ class Table1 extends Component {
             btnContextual='btn-warning'
             className='my-custom-class'
             btnGlyphicon='glyphicon-plus'
-            onClick={ () => this.handleInsertButtonClick() } style = {{'margin-left': '-500px'}}/>
+            onClick={ () => this.handleInsertButtonClick() } style = {{'margin-left': '-400px'}}/>
         );
       }
       
@@ -186,7 +186,7 @@ class Table1 extends Component {
         let allKeys = Object.keys(this.state.results[0])
 
         for(let i=0; i<allKeys.length; i++){
-          if(allKeys[i] != "ID" && allKeys[i] !== "edit" && allKeys[i] !== "inserted" && allKeys[i] !== "inserted"){
+          if(allKeys[i] != "ID" && allKeys[i] !== "edit" && allKeys[i] !== "dropdown" && allKeys[i] !== "inserted"){
             temp[allKeys[i]] = "";
           }
 
@@ -247,7 +247,7 @@ class Table1 extends Component {
  
         {this.state.results.length > 0 ? Object.keys(this.state.results[0]).map((column) => {
           
-          { if( column != "edit" && column != "construction_status" && column != "ID" && column != "inserted" && column != "dropdown") {
+          { if( column != "edit" && column != "construction_status" && column != "ID" && column != "inserted") {
             return(<TableHeaderColumn  dataField={column}  editable={false} > {column} </TableHeaderColumn>)
           }else if( column == "edit"){
             return (<TableHeaderColumn dataField='edit' dataFormat={ (cell, row) => <Edit rowData = {row} callbackFromTable = {this.tableCallback }/>} editable={false} ></TableHeaderColumn>)
@@ -259,7 +259,7 @@ class Table1 extends Component {
           }
           
            
-        }}) : <div></div>}  
+        }}) : <div>{console.log("still workingggggggggg")}</div>}  
                      
         </BootstrapTable>
         {this.state.showCreatePopup ?

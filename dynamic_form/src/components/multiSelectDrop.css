@@ -1,8 +1,9 @@
 .input-box {
-	flex-grow: 1;
+	margin-left: -20px;
+	width: 200px;
 	padding: .200rem .75rem;
 	font-size: 1rem;
-	line-height: 0.5;
+	line-height: 1;
 	color: #495057;
 	background-color: #fff;
 	background-clip: padding-box;
@@ -20,6 +21,8 @@
 }
 .input-box:focus + .search-result {
 	display: block;
+	width: 400px;
+	height: 300px;
 }
 .search-result:hover {
 	display: block;
@@ -33,7 +36,7 @@
 	padding-inline-start: 0;
 	display: none;
 	max-height: 9rem;
-	overflow: scroll;
+	overflow: hidden;
 }
 .search-result > .list-result {
 	padding: 10px;
@@ -117,11 +120,11 @@
 }
 /* chip css */
 .chip {
-	flex-grow: 1;
+	flex-grow: 0;
 }
 .chip-body {
-	height: 20px;
-	min-width: 55px;
+	height: 35px;
+	min-width: 50px;
 	width: auto;
 	background-color: #2196f3;
 	color: #ffffff;

@@ -18,6 +18,8 @@ this.popupCallback=this.popupCallback.bind(this)
      this.props.callbackFromEdit(dataFromProject)//function call
    }
 
+   
+
  
 render() {
     var arrKeys = Object.keys(this.props.currentRow)
@@ -52,7 +54,8 @@ class Project extends React.Component {
       projectValues : this.props.currentRow,
       dataValidator : this.initializeValidator,
       updateCalled: false,
-      arrKeys: Object.keys(this.props.currentRow)
+      arrKeys: Object.keys(this.props.currentRow),
+      
     }
 
     
@@ -70,8 +73,20 @@ class Project extends React.Component {
   }
 
   callBackFromMultiDropdown(dataFromMultiDropdown){
-     console.log("inside callBackFromMultiDropdown ")
-    console.log(dataFromMultiDropdown)
+     console.log("inside callBackFromMultiDropdown")
+     console.log(dataFromMultiDropdown)
+     var multiselectStr = dataFromMultiDropdown.toString()
+     this.setState(prevState => ({
+      projectValues: { 
+                        // object that we want to update
+          ...prevState.projectValues,    // keep all other key-value pairs
+          "construction_status" : multiselectStr,    // update the value of specific key
+          
+      },
+      
+      
+  }))
+    
 
   }
 
@@ -90,15 +105,18 @@ class Project extends React.Component {
    
     let changedKey = event.target.name;
     let changedValue = event.target.value;
+    
 
      //let changedState =this.state.projectValues;  // creating copy of state variable
      //changedState[changedKey] =changedValue;                     
      this.setState(prevState => ({
-      projectValues: {                   // object that we want to update
+      projectValues: { 
+                        // object that we want to update
           ...prevState.projectValues,    // keep all other key-value pairs
-          [changedKey]: changedValue       // update the value of specific key
+          [changedKey]: changedValue,    // update the value of specific key
           
-      }
+      },
+      
       
   }))
   
@@ -110,8 +128,8 @@ class Project extends React.Component {
     this.submit()
     
     
-    // this.props.callbackFromPopup(this.state.projectValues)
-    // this.props.closePopup()
+    this.props.callbackFromPopup(this.state.projectValues)
+    this.props.closePopup()
   }
 
   
@@ -263,28 +281,25 @@ render() {
   return(
       
       <div className = {arrKeys.length<=9? 'list-container': 'list-container_2'}>
-      {console.log("the number of keys is" + arrKeys.length)}
+      
         <ul className = {arrKeys.length<=9? 'list_item': 'list_item_2'}>
           { 
             
-            arrKeys.map( (k) => {
+            arrKeys.filter((k) => k!= "ID" && k!= "inserted" && k!= "edit").map( (k) => {
               
               return (
                 <table className = "popup-table" >
-                  {k == "construction_status" ? <tr> <td> {k}</td>   <td><MultiDropdown multiSelectCallback = {this.callBackFromMultiDropdown} checkedValues = {this.state.projectValues["construction_status"].split(",")}/></td> 
+                  
+                  {k == "construction_status" ? <tr> <td> {k}</td>  <td><MultiDropdown multiSelectCallback = {this.callBackFromMultiDropdown} checkedValues = {this.state.projectValues.construction_status.split(",")}/></td> 
+                  {console.log("the checkedvalues are = " + this.props.checkedValues)}
                   
                   
                 {this.state.dataValidator[k+"_valid"] == false ? <span class = "err" id ={k+"_error"} >Error</span> : null}
-                </tr> : <tr> <td > {k}</td>   <td> <input id = {k} type ="text" name={k}  onBlur = {this.validate} value ={this.state.projectValues[k]} onChange = {this.handleInputChange}></input> </td>
+                </tr> : <tr> <td > {k} </td>   <td> <input id = {k} type ="text" name={k}  onBlur = {this.validate} value ={this.state.projectValues[k]} onChange = {this.handleInputChange}></input> </td>
                 {this.state.dataValidator[k+"_valid"] == false ? <span class = "err" id ={k+"_error"} >Error</span> : null}
                 </tr>}
                 </table>
               )
-                
-               
-
-              
-              
               
             } )
             
