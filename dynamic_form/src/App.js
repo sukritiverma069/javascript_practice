@@ -131,8 +131,8 @@ export default function AuthExample () {
           <li><Link to="/public">Public Page</Link></li>
           <li><Link to="/protected">Protected Page</Link></li>
         </ul>
-        <Route path="/public" component={Public}/>
-        <Route path="/login" component={Login}/>
+          <Route path="/public" component={Public}/>
+          <Route path="/login" component={Login}/>
         <PrivateRoute path='/protected' component={Protected} />
       </div>
     </Router>

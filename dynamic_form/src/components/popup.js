@@ -314,9 +314,7 @@ render() {
         
 
         <div className = "row">
-          {/* <div className = "column">
-          <a href="#" onClick={this.submit} >Submit</a>
-          </div> */}
+          
           <div className = "column">
           <a href="#" onClick={this.handleReset} >Reset</a>
           </div>
