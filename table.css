@@ -1,0 +1,15 @@
+header, .row {
+    display: flex;  /* aligns all child elements (flex items) in a row */
+    border: 1px solid black;
+    padding: 20px;
+}
+
+header {
+    padding-bottom:50px;
+}
+  
+  .col {
+    flex: 1;        /* distributes space on the line equally among items */
+  }
+
+  
