@@ -16,12 +16,14 @@ class App extends React.Component {
         return (
             <Router>
                 <ul>
-                    <li><Link to="/Login">Login</Link></li>
-                    <li><Link to="/LoggedIn">LoggedIn</Link></li>
-                    <li><Link to="/LoggedOut">LoggedOut</Link></li>
+                    <li><Link to="/"></Link></li>
+                    <li><Link to="/index.html"></Link></li>
+                    <li><Link to="/LoggedIn"></Link></li>
+                    <li><Link to="/LoggedOut"></Link></li>
                 </ul>
             <Switch>
-                    <Route path="/Login" component={Login}/>
+                    <Route exact path="/" component={Login}/>
+                    <Route exact path="/index.html" component={Login}/>
                     <Route path="/LoggedIn" component={LoggedIn}/>
                     <Route path="/LoggedOut" component={LoggedOut}/>
         

@@ -24,6 +24,13 @@ body {
 
 /*---------------------FORM------------------*/
 
+.heading {
+    font-size : 40px;
+    text-align: center;
+    color: rgb(197, 195, 195);
+    margin-bottom: 50px;
+}
+
 .form {
     /* background: linear-gradient(to bottom right, rgb(45, 78, 141), rgba(204, 90, 204, 0.932)); */
     width: 30%;
@@ -32,8 +39,9 @@ body {
     border-radius: 12px;
     padding: 20px;
     margin-top: 5px;
-    -webkit-box-shadow: 0 2px 2px rgb(231, 231, 231);
-            box-shadow: 0 2px 2px rgb(231, 231, 231);
+    border: 1px solid rgb(187, 183, 183);
+    /* -webkit-box-shadow: 0 2px 2px rgb(179, 157, 157);
+            box-shadow: 0 2px 2px rgb(231, 231, 231); */
 
 }
 
@@ -52,14 +60,12 @@ body {
 
 .btn {
     margin-left: 150px;
-    background-color: rgb(207, 184, 184);
-    
 }
 
 
 .btn:link,
 .btn:visited {
-    padding: 10px 20px;
+    padding: 10px 50px;
     font-weight: 300;
     text-decoration: none;
     border-radius: 50px;
@@ -69,21 +75,7 @@ body {
    
 }
 
-.btn:link,
-.btn:visited {
-    background-color: rgb(214, 213, 213);
-    color:gray;
-    
-    
-}
 
-.btn:hover,
-.btn-active,
-input[type=submit]:hover,
-input[type=submit]:active {
-    background-color: rgb(148, 145, 145);
-
-}
 
 /*---------------------FORM------------------*/
 input[type=text],
@@ -100,28 +92,9 @@ input[type=email]
     background: transparent;
 }
 
-input[type=checkbox] {
-    margin: 10px 5px 10px 0;
-    zoom: 1.5;
-    background-color: white;
-    vertical-align: middle;
-    
-}
-
-label{
-    font-size:12px;
-    margin-top: 15px;
-    margin-left: -5px;
-    color: rgb(180, 179, 179);
-    vertical-align: middle;
-  }
 
 
-.forgot-password {
-    margin-top: 15px;
-    float: right;
-    color: rgb(180, 179, 179);
-}
+
  
 .header{
     text-align: center;
@@ -139,28 +112,5 @@ label{
      font-size: 60%;
  }
 
- footer {
-   text-align: center;
- }
  
- .sign-up {
-     vertical-align: -70px;
-     display: inline-block;
-     color: rgb(180, 179, 179);
-     text-decoration: none;
-     
-}
-
-.sign-up:hover,
-.sign-up:active {
-    display: inline-block;
-    padding: 10px 20px;
-    font-weight: 300;
-    text-decoration: underline;
-    border-radius: 5px;
-    -webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;
-    transition: background-color 0.2s, border 0.2s, color 0.2s;
-    
-   
-}
 
