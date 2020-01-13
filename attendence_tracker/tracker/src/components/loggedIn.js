@@ -41,7 +41,7 @@ class LoggedIn extends React.Component {
         cookieObj.remove("cookie_user")
       
         
-        fetch("http://localhost/attendence_tracker_backend/api/project/login.php",{
+        fetch("http://localhost/project-details-backend/responseData.json",{
             method: 'post',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(userLoginDetails)

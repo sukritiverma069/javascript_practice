@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import './signIn.css';
+import './login.css';
 import {Redirect} from 'react-router-dom'
-import LoggedIn from './loggedIn';
-import Cookies from 'universal-cookie'
+import Dashboard from './dashboard';
 
 
 
@@ -10,27 +9,14 @@ class Login extends Component {
 
     constructor(props){
         super(props);
-        const cookieObj = new Cookies();
-    
-        const user_cookie = cookieObj.get('cookie_user')
-        
-        console.log('cookie in login constructor ' + JSON.stringify(user_cookie))
 
-        if(typeof user_cookie === 'undefined'){
-            this.state = {
-                userCredentials: {username:'', password: '', timestamp: ''},
-                loginClicked: false,
-                userAuthenticated: false
-             }
-        }else {
-            this.state = {
-                userCredentials: {username:user_cookie.username, password: user_cookie.password, timestamp: user_cookie.timestamp},
-                loginClicked: false,
-                userAuthenticated: true,
-             }
-
+        this.state = {
+           userCredentials: {username:'', password: ''},
+           loginClicked: false,
+           userAuthenticated: false,
+           redirect: false,
+           
         }
-        
        this.getAuthenticationStatus=this.getAuthenticationStatus.bind(this)
        this.handleInputChange=this.handleInputChange.bind(this) 
     }
@@ -61,16 +47,11 @@ class Login extends Component {
 
       getAuthenticationStatus(event){ 
       event.preventDefault();
-
-      
        
 
        if(this.state.userCredentials){
         console.log("sending body")
         var userLoginDetails  = this.state.userCredentials
-        userLoginDetails.timestamp = parseFloat(Date.now())
-        userLoginDetails.action = "LOGIN"
-       
         console.log("this.state.userCredentials")
         console.log(this.state.userCredentials)
         console.log(JSON.stringify(userLoginDetails))    
@@ -88,15 +69,8 @@ class Login extends Component {
              this.setState({
                  userAuthenticated: p.authentication_status,
                  redirect: p.authentication_status,
-                 loginClicked: true,
-                 loginTime:p.logintime
+                 loginClicked: true
                })
-               const cookies = new Cookies();
-               console.log('going to set cookie = ' + this.state.userCredentials )
-               var exp = new Date();
-               //exp.setHours(exp.getHours()+10)
-               exp.setSeconds(exp.getSeconds()+20)
-             cookies.set('cookie_user' , this.state.userCredentials, { path: '/',expires: exp });
              
             }).catch(error => {
               console.log(error);
@@ -115,11 +89,11 @@ class Login extends Component {
 
 render(){
 
-    const cookies = new Cookies();
     if(this.state.userAuthenticated){
+        //component = {<LoggedIn auth = {this.state.userAuthenticated}/>}
         return (<Redirect
             to={{
-              pathname: "/LoggedIn",
+              pathname: "/Dashboard",
               state: { userCredentials: this.state.userCredentials}
             }}
           />)
@@ -134,7 +108,7 @@ render(){
         <div>
 
             <div className = "heading ">
-                Attendence Tracker
+                Attendence Tracker Dashboard
             </div>
             <div className = "form">
                 <form>
@@ -152,7 +126,7 @@ render(){
 
                 <div className = "row">
                 <div>
-                        <a className ="btn" onClick = {this.getAuthenticationStatus} >Login</a>
+                        <button className ="btn" onClick = {this.getAuthenticationStatus} >Login</button>
                 </div>
                 </div>
                   

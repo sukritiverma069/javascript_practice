@@ -1,0 +1,25 @@
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.74);
+    justify-content: space-between;
+    
+}
+
+.item-1 {
+    flex: 0 1 60px;
+    font-size: 40px;
+}
+
+.item-2 {
+    flex: 1 1 40px;
+    font-size: 20px;
+}
+
+.item-3 {
+    flex: 1 0 20px;
+    padding: 10px;
+    vertical-align: middle;
+    font-size: 30px;
+}
