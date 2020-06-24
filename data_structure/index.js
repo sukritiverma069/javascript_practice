@@ -12,6 +12,18 @@ function getArray(){
       
    }
 
+  const largestNumber = (num) => {
+    let arr = [1, 30, 2, 12, 55];
+    let largest = 0;
+    arr.map((k) => {
+      if (k > largest) {
+        largest = k;
+      }
+    });
+    console.log(largest);
+  };
+
+
 const factorial = (num) => {
     var result = num;
     if (num === 0 || num === 1) return 1;
