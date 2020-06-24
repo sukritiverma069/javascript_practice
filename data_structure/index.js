@@ -34,6 +34,15 @@ function getArray(){
   };
 
 
+function checkFactors(factors, num) {
+	for (let i = 0; i < factors.length; i++) {
+		if (num % factors[i] !== 0) {
+			return false;
+		}
+	}
+	return true;
+}
+
 const factorial = (num) => {
     var result = num;
     if (num === 0 || num === 1) return 1;
