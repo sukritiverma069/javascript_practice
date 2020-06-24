@@ -12,8 +12,18 @@ function getArray(){
       
    }
 
-  const largestNumber = (num) => {
-    let arr = [1, 30, 2, 12, 55];
+
+ const sumofTwoelements = (arr) => {
+    let count = 0;
+    let sum = 0;
+    for (var i = 0; i <= arr.length - 1; i++) {
+      sum = arr[i] + arr[i + 1];
+      count = count + 1;
+      console.log(sum);
+    }
+  };
+  const largestNumber = (arr) => {
+    
     let largest = 0;
     arr.map((k) => {
       if (k > largest) {
