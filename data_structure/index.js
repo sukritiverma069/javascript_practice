@@ -12,6 +12,42 @@ function getArray(){
       
    }
 
+  //
+  //   *****
+  // ---*-
+  // --*--
+  // -*---
+  // *****
+
+  const printPattern = (n) => {
+    var str = "";
+    for (var i = 0; i < n; i++) {
+      str = str + "*";
+    }
+    console.log(str);
+    str = "";
+    var j = n - 2;
+    for (var l = 0; l < n - 2; l++) {
+      var k = "-";
+      for (var p = 0; p < n; p++) {
+        if (p === j) {
+          k = "*";
+        } else {
+          k = "-";
+        }
+        str = str + k;
+      }
+      console.log(str);
+      str = "";
+      j--;
+    }
+
+    for (var i = 0; i < n; i++) {
+      str = str + "*";
+    }
+    console.log(str);
+  };
+
 
  const sumofTwoelements = (arr) => {
    
