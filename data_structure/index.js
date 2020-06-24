@@ -12,12 +12,32 @@ function getArray(){
       
    }
 
+
+  
+  // *****
+  // ****
+  // ***
+  // **
+  // *
+
+  const dummyFunc = (n) => {
+    for (var i = 1; i <= 5; i++) {
+      var str = "*";
+      for (var j = i; j < 5; j++) {
+        str = str + "*";
+      }
+      console.log(str);
+    }
+  };
+
   //
   //   *****
   // ---*-
   // --*--
   // -*---
   // *****
+
+
 
   const printPattern = (n) => {
     var str = "";
