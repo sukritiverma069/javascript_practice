@@ -106,6 +106,27 @@ function getArray(){
   };
 
 
+//    check if there are two numbers whose sum = given number
+  
+  const dummyFunc = (arr) => {
+    var found = false;
+    for (var i = 0; i < arr.length; i++) {
+      for (var j = i + 1; j < arr.length; j++) {
+        if (arr[i] + arr[j] === 25) {
+          found = true;
+          console.log("found");
+          break;
+        }
+      }
+      //this break to break the outer loop also when the sum has laready been found
+      if ((found = true)) {
+        break;
+      }
+    }
+    console.log("not found in any iteration");
+  };
+
+
  const sumofTwoelements = (arr) => {
    
     let sum = 0;
