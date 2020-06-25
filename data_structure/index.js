@@ -69,6 +69,43 @@ function getArray(){
   };
 
 
+   //                    *
+  //                    ***
+  //                   *****
+  //                  *******
+  //                 *********
+  //                ***********
+  //               *************
+
+  const dummyFunc = (n) => {
+    let str = "";
+    let star = "";
+    let space = "";
+    let starcounter = 1;
+    let spacecounter = n - 1;
+    //loop fir each line
+    for (var i = 0; i < n; i++) {
+      //loop to add all spaces
+      for (var j = 0; j < spacecounter; j++) {
+        space = space + " ";
+      }
+      //loop to add all stars
+      for (var k = 0; k < starcounter; k++) {
+        star = star + "*";
+      }
+      //concatenate the spaces and stars
+      str = space + star;
+      console.log(str);
+      //refresh the initial strings
+      space = "";
+      star = "";
+      //manipulate the counters as required
+      spacecounter--;
+      starcounter = starcounter + 2;
+    }
+  };
+
+
  const sumofTwoelements = (arr) => {
    
     let sum = 0;
