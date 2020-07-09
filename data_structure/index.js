@@ -20,6 +20,26 @@ function getArray(){
   // **
   // *
 
+const arrayIntersection = (atrArr)=>{
+	  var arr1 = strArr[0];
+    var arr2 = strArr[1];
+
+    var a2 = Array.from(arr1.split(", "), Number);
+    var b2 = Array.from(arr2.split(", "), Number);
+    console.log(a2);
+    console.log(b2);
+
+    var set = new Set(a2);
+    console.log(set);
+    let intersectionArr = [];
+    for (var i = 0; i <= b2.length; i++) {
+      if (set.has(b2[i])) {
+        console.log("printinf found elememnts " + b2[i]);
+        intersectionArr.push(b2[i]);
+      }
+    }
+}
+
   const dummyFunc = (n) => {
     for (var i = 1; i <= 5; i++) {
       var str = "*";
@@ -174,7 +194,10 @@ const factorial = (num) => {
       newString += str[i];
     }
     console.log(newString);
-    return newString;
+   
+	  if(newString === str){
+		  console.log("it is a palindrome")
+	  }
   };
    
    function linearSearch(){
