@@ -33,7 +33,9 @@ const arrayIntersection = (atrArr)=>{
         console.log("printinf found elememnts " + b2[i]);
         intersectionArr.push(b2[i]);
       }
+	    return true
     }
+	return false
 }
 
   // *****
