@@ -14,11 +14,7 @@ function getArray(){
 
 
   
-  // *****
-  // ****
-  // ***
-  // **
-  // *
+
 
 const arrayIntersection = (atrArr)=>{
 	  var arr1 = strArr[0];
@@ -39,6 +35,12 @@ const arrayIntersection = (atrArr)=>{
       }
     }
 }
+
+  // *****
+  // ****
+  // ***
+  // **
+  // *
 
   const dummyFunc = (n) => {
     for (var i = 1; i <= 5; i++) {
