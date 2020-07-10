@@ -38,6 +38,27 @@ const arrayIntersection = (atrArr)=>{
 	return false
 }
 
+// perfect number
+
+function perfectNumber(n) {
+    let arr = [];
+    let sum = 0;
+    for (var i = 1; i < n; i++) {
+      if (n % i == 0) {
+        arr.push(i);
+      }
+    }
+    for (var j = 0; j < arr.length; j++) {
+      sum = sum + arr[j];
+    }
+    console.log(sum);
+    if (sum === n) {
+      console.log("Yes");
+    } else {
+      console.log("No");
+    }
+  }
+
   // *****
   // ****
   // ***
