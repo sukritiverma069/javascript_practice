@@ -12,14 +12,12 @@ function getArray(){
       
    }
 
-
-//     #
-//    # #
-//   #   #
-//  #     #
-// #       #
-//#         #
-//########### 
+     *
+    * *
+   *   *
+  *     *
+ *       *
+* * * * * * 
 
  function hollowTriangle(n) {
     var str = "";
