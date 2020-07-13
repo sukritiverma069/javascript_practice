@@ -13,6 +13,46 @@ function getArray(){
    }
 
 
+//     #
+//    # #
+//   #   #
+//  #     #
+// #       #
+//#         #
+//########### 
+
+ function hollowTriangle(n) {
+    var str = "";
+    for (var i = 0; i < n; i++) {
+      str = str + " ";
+    }
+    str = str + "*";
+    console.log(str);
+    var spacesCount = n - 1;
+    var spaceBetween = 1;
+    str = "";
+
+    for (var j = 0; j < n - 1; j++) {
+      for (var k = 0; k < spacesCount; k++) {
+        str = str + " ";
+      }
+
+      str = str + "*";
+      for (var m = 0; m < spaceBetween; m++) {
+        str = str + " ";
+      }
+      str = str + "*";
+      console.log(str);
+      spacesCount--;
+      spaceBetween += 2;
+      str = "";
+    }
+    for (var o = 0; o <= n; o++) {
+      str = str + "* ";
+    }
+    console.log(str);
+  }
+
   
 
 
