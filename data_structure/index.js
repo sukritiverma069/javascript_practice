@@ -12,6 +12,32 @@ function getArray(){
       
    }
 
+//"acc?7??sss?3rr1??????5"
+
+ function QuestionsMarks(str) {
+    var result = false;
+
+    for (var i = 0; i < str.length; i++) {
+      if (isNaN(str[i]) === false) {
+        for (var j = i + 4; j < str.length; j++) {
+          if (parseInt(str[i]) + parseInt(str[j]) === 10) {
+            var counter = 0;
+            for (var k = i + 1; k < j; k++) {
+              if (str[k] === "?") {
+                counter++;
+              }
+            }
+            console.log(counter);
+          }
+          if (counter === 3) {
+            result = true;
+          }
+        }
+      }
+    }
+    console.log(result);
+  }
+
      *
     * *
    *   *
