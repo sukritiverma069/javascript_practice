@@ -386,6 +386,13 @@ const factorial = (num) => {
 
    }
 
+
+   //remove duplicate optimised
+function removeDuplicates(data){
+	return [...new Set(data)]
+}
+
+
    function removeDuplicates(){
      var arr = getArray()
      var arr2 = []
