@@ -40,11 +40,8 @@ function getArray(){
 
 //sliding window question find the length of the subarray whose sum is equal to 0 having length=3
 
- const subarrayLength = (event) => {
-    event.preventDefault();
-    // history.push("/");
-
-    let arr = [12, 1, 5, 3, 2,2,2, 9];
+ const subarrayLength = () => {
+    let arr = [2,1,5,1,3,2];
     let k = 3;
     let start = 0;
     let end = k - 1;
@@ -59,6 +56,8 @@ function getArray(){
     }
     console.log(maxsum);
   };
+
+
 
      *
     * *
