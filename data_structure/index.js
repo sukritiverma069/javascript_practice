@@ -38,6 +38,28 @@ function getArray(){
     console.log(result);
   }
 
+//sliding window question find the length of the subarray whose sum is equal to 0 having length=3
+
+ const subarrayLength = (event) => {
+    event.preventDefault();
+    // history.push("/");
+
+    let arr = [12, 1, 5, 3, 2,2,2, 9];
+    let k = 3;
+    let start = 0;
+    let end = k - 1;
+    let currentSum = 0;
+    for (let i = 0; i <= end; i++) {
+      currentSum += arr[i];
+    }
+    let maxsum = currentSum;
+    while (end < arr.length) {
+      currentSum = currentSum - arr[start++] + arr[++end];
+      if (currentSum > maxsum) maxsum = currentSum;
+    }
+    console.log(maxsum);
+  };
+
      *
     * *
    *   *
