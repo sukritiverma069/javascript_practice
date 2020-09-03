@@ -38,7 +38,7 @@ function getArray(){
     console.log(result);
   }
 
-//sliding window question find the length of the subarray whose sum is equal to 0 having length=3
+//sliding window question find the maximum sum of the subarray whose sum is equal to 0 having length=3
 
  const subarrayLength = () => {
     let arr = [2,1,5,1,3,2];
