@@ -28,3 +28,21 @@ function CodelandUsernameValidation(str) {
 }
    
 
+
+//string reverse with two pointer approach
+
+function FirstReverse(str) { 
+let arr = str.split('')
+let left = 0;
+let right = str.length-1
+while(left<right){
+  let temp  = arr[left]
+  arr[left] =str[right]
+  arr[right] = temp
+  left++
+  right--
+}
+return arr.join('');
+
+}
+
