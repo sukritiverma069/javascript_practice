@@ -309,6 +309,25 @@ const factorial = (num) => {
 		  console.log("it is a palindrome")
 	  }
   };
+
+//optimised function for palindrome checking
+
+function optimisedPalindrome(str) {
+  let flag = true;
+  let start = 0;
+  let end = str.length - 1;
+
+  while (start !== end) {
+    if (str[start] !== str[end]) {
+      flag = false;
+      break;
+    }
+    start++;
+    end--;
+  }
+
+  console.log(flag);
+}
    
    function linearSearch(){
      var searchedEle = parseInt(document.getElementById("find").value);
