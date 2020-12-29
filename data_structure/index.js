@@ -238,24 +238,19 @@ function perfectNumber(n) {
 
 //    check if there are two numbers whose sum = given number
   
-  const dummyFunc = (arr) => {
-    var found = false;
-    for (var i = 0; i < arr.length; i++) {
-      for (var j = i + 1; j < arr.length; j++) {
-        if (arr[i] + arr[j] === 25) {
-          found = true;
-          console.log("found");
-          break;
-        }
-      }
-      //this break to break the outer loop also when the sum has laready been found
-      if ((found = true)) {
-        break;
-      }
+ const dummyFunc = (arr) => {
+  let flag = false;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] + arr[i + 1] == 15) {
+      flag = true;
+      console.log("found the sum");
+      break;
     }
-    console.log("not found in any iteration");
-  };
-
+  }
+  if (flag === false) {
+    console.log("not found in any iterartion");
+  }
+};
 
  const sumofTwoelements = (arr) => {
    
