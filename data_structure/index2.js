@@ -90,6 +90,34 @@ function countBoomerangs(arr) {
 }
 
 
+//find the highest frequency element in an array
+
+const maxFrequency = (arr) => {
+  let myMap = new Map();
+  let maxFrequency = -1;
+  let elementWithMaxFrequency;
+  let count;
+  for (let i = 0; i < arr.length; i++) {
+    if (myMap.has(arr[i])) {
+      count = myMap.get(arr[i]) + 1;
+      myMap.set(arr[i], count);
+      if (myMap.get(arr[i]) > maxFrequency) {
+        maxFrequency = myMap.get(arr[i]);
+        elementWithMaxFrequency = arr[i];
+      }
+    } else {
+      myMap.set(arr[i], 1);
+    }
+  }
+  //   for (let [key, value] of myMap.entries()) {
+  //     console.log("the key is = " + key + ", the value is = " + value);
+  //   }
+  console.log("elementWithMaxFrequency = " + elementWithMaxFrequency);
+};
+
+maxFrequency([1, 2, 5, 3, 2, 5, 4, 10, 4, 5, 5, 2, 1]);
+
+
 
 
 
