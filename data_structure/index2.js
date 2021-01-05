@@ -119,5 +119,32 @@ maxFrequency([1, 2, 5, 3, 2, 5, 4, 10, 4, 5, 5, 2, 1]);
 
 
 
+const repeatingEleOptimised = (arr) => {
+  let value;
+  let repeatedEle;
+  for (let i = 0; i < arr.length; i++) {
+    value = Math.abs(arr[i]);
+    arr[value] = -arr[value];
+  }
+
+  console.log(arr);
+
+  for (let j = 0; j < arr.length; j++) {
+    if (arr[j] > 0) {
+      repeatedEle = j;
+    } else {
+      continue;
+    }
+  }
+
+  console.log(repeatedEle);
+};
+
+repeatingEleOptimised([1, 2, 3, 4, 5, 4, 7, 9, 8, 6]);
+
+//we return the index in the second loop beacuse when we visited that index twice and that index was actually the value that was repeated hence we had to visit the index twice
+
+
+
 
 
