@@ -142,7 +142,8 @@ const repeatingEleOptimised = (arr) => {
 
 repeatingEleOptimised([1, 2, 3, 4, 5, 4, 7, 9, 8, 6]);
 
-//we return the index in the second loop beacuse when we visited that index twice and that index was actually the value that was repeated hence we had to visit the index twice
+//we return the index in the second loop beacuse when we visited that index twice and that index was actually the value that was repeated
+//hence we had to visit the index twice
 
 
 
