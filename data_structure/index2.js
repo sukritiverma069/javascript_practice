@@ -32,19 +32,34 @@ function CodelandUsernameValidation(str) {
 //string reverse with two pointer approach
 
 function FirstReverse(str) { 
-let arr = str.split('')
-let left = 0;
-let right = str.length-1
-while(left<right){
-  let temp  = arr[left]
-  arr[left] =arr[right]
-  arr[right] = temp
-  left++
-  right--
-}
-return arr.join('');
+    let arr = str.split('')
+    let left = 0;
+    let right = str.length-1
+    while(left<right){
+      let temp  = arr[left]
+      arr[left] =arr[right]
+      arr[right] = temp
+      left++
+      right--
+    }
+    console.log( arr.join(''));
+    
+    }
 
-}
+FirstReverse("My Name is Sukriti")
+
+// for keeping the string order same
+
+function stringReverse(str) {
+    const newStr = str.split(" ");
+    const newArr = newStr.map((item) => {
+      return item.split("").reverse().join("");
+    });
+  
+    console.log(newArr.join(" "));
+  }
+  
+  stringReverse("My name is Rahul");
 
 
 //convert obj to an array
